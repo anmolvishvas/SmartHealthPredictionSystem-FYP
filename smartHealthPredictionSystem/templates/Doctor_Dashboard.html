@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css" media="all">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+            integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Doctor Dashboard</title>
+    </head>
+
+    <body>
+
+        <header class="row">
+            <a href="{% url 'welcome' %}">
+                <img src="{% static 'Images/Logo.png' %}" alt="">
+            </a>
+            <div></div>
+            <div></div>
+            <div class="dateTime">
+                <div class="time"></div>
+                <div class="date"></div>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="menu-toggle">
+                <div class="hamburger">
+                    <span></span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <ul>
+                    <li class="is-active"><a href="{% url 'doctor_dashboard' %}"><i class="uil uil-create-dashboard"></i>
+                            Dashboard</a></a></li>
+                    <li><a href="{% url 'doctor_profile' %}"><i class="uil uil-user"></i>Profile</a></li>
+                    <li><a href="{% url 'doctor_view_prediction_result' %}"><i class="uil uil-medkit"></i>Prediction Results</a></li>
+                    <li><a href="{% url 'doctor_settings' %}"><i class="uil uil-setting"></i>Setting</a></li>
+                    <li><a href="{% url 'welcome' %}"><i class="uil uil-signout"></i>Logout</a></li>
+                </ul>
+            </div>
+            <div class="dashboardContainer">
+                <div class="flexbox-container">
+                    <div class="flexbox-item flexbox-item-1">
+                        <h1>Good Day, Dr. Paul Randolph</h1>
+                        <img src="{% static 'Images/Paul Randolph Doctor Avatar.jpg' %}" alt="">
+                    </div>
+
+                    <div class="flexbox-item flexbox-item-2">
+                        <h1>My Profile</h1>
+                        <div class="myProfile">
+                            <div class="col-md-3">
+                                <h5>Full Name:</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <h5>Paul Randolph</h5>
+                            </div>
+                        </div>
+
+                        <div class="myProfile">
+                            <div class="col-md-3">
+                                <h5>User Type:</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <h5>Doctor</h5>
+                            </div>
+                        </div>
+                        <div class="myProfile">
+                            <div class="col-md-3">
+                                <h5>Phone Number:</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <h5>+230 -  5632 5896</h5>
+                            </div>
+                        </div>
+                        <div class="myProfile">
+                            <div class="col-md-3">
+                                <h5>Address:</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <h5>Quatre Bornes, Mauritius</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flexbox-item flexbox-item-3">
+                        <div class="aboutHealth">
+                            <div class="col-md-3">
+                                <img src="{% static 'Images/AboutHealth.jpg' %}" class="img">
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                <h1>
+                                    What is the importance of health?
+                                </h1>
+                                <p>
+                                    Being healthy should be part of your overall lifestyle. Living a healthy lifestyle
+                                    can help prevent chronic diseases and long-term illnesses. Feeling good about
+                                    yourself and taking care of your health are important for your self-esteem and
+                                    self-image. Maintain a healthy lifestyle by doing what is right for your body.
+                                </p>
+                                <div class="aboutHealthFAQ">
+                                    <div class="col-md-3 icon">
+                                        <i class="uil uil-clinic-medical"></i>
+                                    </div>
+                                    <div class="col-md-9 text-secondary-1">
+                                        <h5>What does general health mean?</h5>
+                                        <p>The state of health of the body ad a whole, or of a community.</p>
+                                    </div>
+                                </div>
+                                <div class="aboutHealthFAQ">
+                                    <div class="col-md-3 icon">
+                                        <i class="uil uil-medkit"></i>
+                                    </div>
+                                    <div class="col-md-9 text-secondary-1">
+                                        <h5>What are the 5 types of health?</h5>
+                                        <p>There are five main aspects of personal health: physical, emotional, social,
+                                            spiritual, and intellectual.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="{% static 'js/mainjs.js' %}"></script>
+    </body>
+
+</html>

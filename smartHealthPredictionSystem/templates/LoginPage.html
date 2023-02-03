@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css" media="all">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+            integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Health Plus - Login</title>
+    </head>
+
+    <body>
+        <header class="row">
+            <a href="{% url 'welcome' %}">
+                <img src="{% static 'Images/Logo.png' %}" alt="">
+            </a>
+            <div></div>
+            <div></div>
+            <div class="dateTime">
+                <div class="time"></div>
+                <div class="date"></div>
+            </div>
+        </header>
+
+        <div class="loginContainer">
+            <h1>
+                Login
+            </h1>
+
+            <div class="form">
+                <div class="form-login">
+                    <form action="#">
+                        <div class="input-field">
+                            <input type="text" placeholder="Enter your email" required>
+                            <i class="uil uil-envelope icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" class="password" placeholder="Enter your password" required>
+                            <i class="uil uil-lock icon"></i>
+                            <i class="uil uil-eye-slash showHidePw"></i>
+                        </div>
+
+
+                        <div class="input-field button">
+                            <input type="button" value="Login">
+                        </div>
+                    </form>
+
+                    <h5 style="margin-top: 15px; font-size: 14px; color: #ffff; text-align: center;">Not a member? <a
+                            href="{% url 'registration' %}" style="color: #ffff;"> Register here </a></h5>
+                </div>
+            </div>
+
+        </div>
+        <script src="{% static 'js/mainjs.js' %}"></script>
+    </body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css" media="all">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+            integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Admin-Edit Doctor</title>
+    </head>
+
+    <body>
+
+        <header class="row">
+            <a href="{% url 'welcome' %}">
+                <img src="{% static 'Images/Logo.png' %}" alt="">
+            </a>
+            <div></div>
+            <div></div>
+            <div class="dateTime">
+                <div class="time"></div>
+                <div class="date"></div>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <div class="menu-toggle">
+                <div class="hamburger">
+                    <span></span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <ul>
+                    <li><a href="{% url 'admin_dashboard' %}"><i class="uil uil-create-dashboard"></i>
+                            Dashboard</a></a></li>
+                    <li><a href="{% url 'admin_add_doctor' %}"><i class="uil uil-user-plus"></i></i>Add Doctors</a></li>
+                    <li class="is-active"><a href="{% url 'admin_view_doctor' %}"><i
+                                class="uil uil-user-md"></i></i>View Doctors</a></li>
+                    <li><a href="{% url 'admin_view_patient' %}"><i class="uil uil-user"></i></i>View Patients</a></li>
+                    <li><a href="{% url 'admin_view_prediction' %}"><i class="uil uil-medkit"></i>Prediction Results</a>
+                    </li>
+                    <li><a href="{% url 'welcome' %}"><i class="uil uil-signout"></i>Logout</a></li>
+                </ul>
+            </div>
+            <div class="registrationContainer">
+                <h1>
+                    Edit Doctor
+                </h1>
+                <form action="#">
+                    <div class="card-details">
+                        <div class="card-box">
+                            <span class="details">Email</span>
+                            <input type="text" placeholder="p.randolph@gmail.com">
+                        </div>
+                        <div class="card-box">
+                            <span class="details">Contact</span>
+                            <input type="text" placeholder="+230 56325896">
+                        </div>
+                        <div class="card-box">
+                            <span class="details">Address</span>
+                            <input type="text" placeholder="Quatre Bornes, Mauritius">
+                        </div>
+                        <div class="card-box">
+                            <span class="details">Specialist</span>
+                            <input type="text" placeholder="Cardiologist">
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <a href="#"><input type="submit" value="Authorize"></a>
+                        <a href="#"><input type="submit" value="Active"></a>
+                    </div>
+                    <div class="buttonRegister">
+                        <a href="{% url 'admin_view_doctor' %}"><input type="text" value="Add Doctor"></a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <script src="{% static 'js/mainjs.js' %}"></script>
+
+    </body>
+
+</html>
