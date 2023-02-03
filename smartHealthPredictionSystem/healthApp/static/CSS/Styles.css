@@ -1,1312 +1,1313 @@
 * {
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    list-style: none;
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	list-style: none;
+	font-family: "Inter", sans-serif;
+	font-size: 14px;
 }
 
 body {
-    overflow-x: hidden;
-    background: #07222d;
+	overflow-x: hidden;
+	background: #07222d;
 }
 
 /* Home Page */
 .row {
-    padding: 20px;
-    max-width: 1900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 21fr 1fr 2fr;
-    justify-items: center;
+	padding: 20px;
+	max-width: 1900px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 21fr 1fr 2fr;
+	justify-items: center;
 }
 
 .dateTime {
-    font-size: 12px;
-    padding: 14px;
-    color: #ffffff;
-    background: #07222d;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
-    border-right: 10px #06b6fd solid;
-    width: 400px;
-    font-weight: 500;
-    font-family: "Inter", sans-serif;
+	font-size: 12px;
+	padding: 14px;
+	color: #ffffff;
+	background: #07222d;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+	border-radius: 4px;
+	border-right: 10px #06b6fd solid;
+	width: 400px;
+	font-weight: 500;
+	font-family: "Inter", sans-serif;
 }
 
 .time {
-    font-size: 3em;
-    color: #06b6fd;
-    margin-top: 12px;
+	font-size: 3em;
+	color: #06b6fd;
+	margin-top: 12px;
 }
 
 .date {
-    margin-top: 12px;
-    font-size: 2em;
+	margin-top: 12px;
+	font-size: 2em;
 }
 
 @media (max-width: 786px) {
-    .row {
-        padding: 8px;
-        max-width: 700px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 21fr 1fr 2fr;
-        justify-items: center;
-    }
+	.row {
+		padding: 8px;
+		max-width: 700px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1fr 21fr 1fr 2fr;
+		justify-items: center;
+	}
 
-    .dateTime {
-        font-size: 8px;
-        padding: 10px;
-        width: 200px;
-        text-align: center;
-    }
+	.dateTime {
+		font-size: 8px;
+		padding: 10px;
+		width: 200px;
+		text-align: center;
+	}
 
-    .time {
-        font-size: 3em;
-        color: #06b6fd;
-        margin-top: 12px;
-    }
+	.time {
+		font-size: 3em;
+		color: #06b6fd;
+		margin-top: 12px;
+	}
 
-    .date {
-        margin-top: 12px;
-        font-size: 2em;
-    }
+	.date {
+		margin-top: 12px;
+		font-size: 2em;
+	}
 }
 
 .container {
-    max-width: 1050px;
-    font-size: 12px;
-    margin: 0 auto;
-    margin-top: 50px;
-    color: #ffffff;
-    background: #46597c;
-    padding: 42px;
-    box-shadow: 0 0 10px rgba(252, 252, 252, 0.25);
-    border-radius: 6px;
-    font-weight: 500;
-    text-align: center;
+	max-width: 1050px;
+	font-size: 12px;
+	margin: 0 auto;
+	margin-top: 50px;
+	color: #ffffff;
+	background: #46597c;
+	padding: 42px;
+	box-shadow: 0 0 10px rgba(252, 252, 252, 0.25);
+	border-radius: 6px;
+	font-weight: 500;
+	text-align: center;
 }
 
-.container>h1 {
-    font-size: 46px;
-    margin: 30px;
+.container > h1 {
+	font-size: 46px;
+	margin: 30px;
 }
 
-.container>h4 {
-    margin: 50px;
-    font-size: 26px;
+.container > h4 {
+	margin: 50px;
+	font-size: 26px;
 }
 
 .portalContainer {
-    display: grid;
-    grid-template-columns: repeat(3, 2fr);
-    max-width: 900px;
-    margin: 0 auto;
-    gap: 20px;
-    justify-items: center;
-    align-items: center;
+	display: grid;
+	grid-template-columns: repeat(3, 2fr);
+	max-width: 900px;
+	margin: 0 auto;
+	gap: 20px;
+	justify-items: center;
+	align-items: center;
 }
 
 .box {
-    background: #07222d;
-    margin: 20px;
-    border-radius: 6px;
-    font-size: 20px;
-    padding: 42px;
+	background: #07222d;
+	margin: 20px;
+	border-radius: 6px;
+	font-size: 20px;
+	padding: 42px;
 }
 
 .portalContainer a {
-    color: #ffffff;
-    text-decoration: none;
+	color: #ffffff;
+	text-decoration: none;
 }
 
 @media (max-width: 786px) {
-    .container {
-        max-width: 500px;
-        font-size: 8px;
-        padding: 12px;
-        border-radius: 6px;
-    }
+	.container {
+		max-width: 500px;
+		font-size: 8px;
+		padding: 12px;
+		border-radius: 6px;
+	}
 
-    .container>h1 {
-        font-size: 26px;
-        margin: 30px;
-    }
+	.container > h1 {
+		font-size: 26px;
+		margin: 30px;
+	}
 
-    .container>h4 {
-        margin: 50px;
-        font-size: 16px;
-    }
+	.container > h4 {
+		margin: 50px;
+		font-size: 16px;
+	}
 
-    .portalContainer {
-        display: block;
-        max-width: 200px;
-    }
+	.portalContainer {
+		display: block;
+		max-width: 200px;
+	}
 }
 
 /* Registration Page */
 .registrationContainer {
-    margin: 0 auto;
-    max-width: 700px;
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 25px;
-    background: #46597c;
-    height: 50%;
+	margin: 0 auto;
+	max-width: 700px;
+	width: 100%;
+	padding: 25px 30px;
+	border-radius: 25px;
+	background: #46597c;
+	height: 50%;
 }
 
-.registrationContainer>h1 {
-    font-size: 46px;
-    margin: 30px;
-    text-align: center;
-    color: #ffffff;
+.registrationContainer > h1 {
+	font-size: 46px;
+	margin: 30px;
+	text-align: center;
+	color: #ffffff;
 }
 
 .registrationContainer form .card-details {
-    margin-top: 25px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+	margin-top: 25px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 form .card-details .card-box {
-    width: calc(100%/2 -20px);
-    margin-bottom: 15px;
+	width: calc(100% / 2 -20px);
+	margin-bottom: 15px;
+}
+
+.error {
+	font-size: 22px;
+	background: #eb1b6b;
+	width: 100%;
+	text-align: center;
+	margin-top: 5px;
+	height: 35px;
+	border-radius: 10px;
 }
 
 .card-details .card-box .details {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 20px;
+	display: block;
+	margin-bottom: 5px;
+	font-size: 20px;
 }
 
 .card-details .card-box input {
-    height: 45px;
-    width: 250px;
-    padding: 12px;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #ffffff;
-    font-size: 16px;
-    border-bottom-width: 2px;
-    transition: all 0.3s ease;
+	height: 45px;
+	width: 250px;
+	padding: 12px;
+	outline: none;
+	border-radius: 5px;
+	border: 1px solid #ffffff;
+	font-size: 16px;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
 }
 
 .card-details .card-box input:focus,
 .card-details .card-box input:valid {
-    border-color: #07222d;
-
+	border-color: #07222d;
 }
 
 form .circal-form .circal-title {
-    font-size: 20px;
-    border-bottom: 2px solid;
+	font-size: 20px;
+	border-bottom: 2px solid;
 }
 
 form .circal-form .category {
-    margin-top: 10px;
-    margin-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 form .buttonRegister {
-    text-align: center;
+	text-align: center;
 }
 
 form .buttonRegister input {
-    padding: 10px;
-    font-size: 18px;
-    margin-top: 10px;
-    height: 100%;
-    width: 50%;
-    outline: none;
-    text-align: center;
-    color: #fff;
-    border: none;
-    background: #07222d;
-    border-radius: 6px;
+	padding: 10px;
+	font-size: 18px;
+	margin-top: 10px;
+	height: 100%;
+	width: 50%;
+	outline: none;
+	text-align: center;
+	color: #fff;
+	border: none;
+	background: #07222d;
+	border-radius: 6px;
 }
 
-@media (max-width:584px) {
-    .registrationContainer {
-        max-width: 100%;
-    }
+@media (max-width: 584px) {
+	.registrationContainer {
+		max-width: 100%;
+	}
 
-    form .card-details .card-box {
-        margin-bottom: 15px;
-        width: 100%;
-    }
+	form .card-details .card-box {
+		margin-bottom: 15px;
+		width: 100%;
+	}
 
-    .card-details .card-box input {
-        width: 100%;
+	.card-details .card-box input {
+		width: 100%;
+	}
 
-    }
+	form .circal-form .category {
+		width: 100%;
+	}
 
-    form .circal-form .category {
-        width: 100%;
-    }
+	.registrationContainer form .card-details {
+		max-height: 300px;
+		overflow: scroll;
+	}
 
-    .registrationContainer form .card-details {
-        max-height: 300px;
-        overflow: scroll;
-    }
-
-    .card-details::_webkit-scrollbar {
-        width: 0;
-    }
+	.card-details::_webkit-scrollbar {
+		width: 0;
+	}
 }
 
 /* Login Page */
 
 .loginContainer {
-    margin: 0 auto;
-    max-width: 700px;
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 25px;
-    background: #46597c;
-    height: 50%;
+	margin: 0 auto;
+	max-width: 700px;
+	width: 100%;
+	padding: 25px 30px;
+	border-radius: 25px;
+	background: #46597c;
+	height: 50%;
 }
 
-.loginContainer>h1 {
-    font-size: 46px;
-    margin: 30px;
-    text-align: center;
+.loginContainer > h1 {
+	font-size: 46px;
+	margin: 30px;
+	text-align: center;
 }
 
 .loginContainer .form {
-    width: 50%;
-    padding: 30px;
-    transition: margin-left 0.18s ease;
-    margin: 0 auto;
-    max-width: 500px;
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 25px;
-    background: #46597c;
+	width: 50%;
+	padding: 30px;
+	transition: margin-left 0.18s ease;
+	margin: 0 auto;
+	max-width: 500px;
+	width: 100%;
+	padding: 25px 30px;
+	border-radius: 25px;
+	background: #46597c;
 }
 
 .loginContainer.active .login {
-    margin-left: -50%;
-    opacity: 0;
-    transition: margin-left 0.18s ease, opacity 0.15s ease;
+	margin-left: -50%;
+	opacity: 0;
+	transition: margin-left 0.18s ease, opacity 0.15s ease;
 }
 
 .form .input-field {
-    position: relative;
-    height: 50px;
-    width: 100%;
-    margin-top: 30px;
+	position: relative;
+	height: 50px;
+	width: 100%;
+	margin-top: 30px;
 }
 
 .input-field input {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    padding: 0 35px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    border-bottom: 2px solid #ccc;
-    border-top: 2px solid transparent;
-    transition: all 0.2s ease;
-    background-color: transparent;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	padding: 0 35px;
+	border: none;
+	outline: none;
+	font-size: 16px;
+	border-bottom: 2px solid #ccc;
+	border-top: 2px solid transparent;
+	transition: all 0.2s ease;
+	background-color: transparent;
 }
 
 .input-field input:is(:focus, :valid) {
-    border-bottom-color: #07222d;
+	border-bottom-color: #07222d;
 }
 
 .input-field i {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999;
-    font-size: 23px;
-    transition: all 0.2s ease;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #999;
+	font-size: 23px;
+	transition: all 0.2s ease;
 }
 
-.input-field input:is(:focus, :valid)~i {
-    color: #07222d;
+.input-field input:is(:focus, :valid) ~ i {
+	color: #07222d;
 }
 
 .input-field i.icon {
-    left: 0;
+	left: 0;
 }
 
 .input-field i.showHidePw {
-    right: 0;
-    cursor: pointer;
-    padding: 10px;
+	right: 0;
+	cursor: pointer;
+	padding: 10px;
 }
 
 .form .button {
-    margin-top: 35px;
+	margin-top: 35px;
 }
 
 .form .button input {
-    border: none;
-    color: #fff;
-    font-size: 17px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    border-radius: 6px;
-    background-color: #07222d;
-    cursor: pointer;
-    transition: all 0.3s ease;
+	border: none;
+	color: #fff;
+	font-size: 17px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	border-radius: 6px;
+	background-color: #07222d;
+	cursor: pointer;
+	transition: all 0.3s ease;
 }
 
 .button input:hover {
-    background-color: #07222d80;
+	background-color: #07222d80;
 }
 
 @media (max-width: 786px) {
-    .loginContainer {
-        max-width: 500px;
-    }
+	.loginContainer {
+		max-width: 500px;
+	}
 }
 
 @media (max-width: 500px) {
-    .loginContainer {
-        max-width: 400px;
-    }
+	.loginContainer {
+		max-width: 400px;
+	}
 }
 
 /* navigation bar */
 .wrapper {
-    display: flex;
-    position: relative;
+	display: flex;
+	position: relative;
 }
 
 .menu-toggle {
-    display: none;
-    position: fixed;
-    top: 7rem;
-    right: 2rem;
-    width: 60px;
-    height: 60px;
-    border-radius: 99px;
-    background-color: #2e3047;
-    cursor: pointer;
+	display: none;
+	position: fixed;
+	top: 7rem;
+	right: 2rem;
+	width: 60px;
+	height: 60px;
+	border-radius: 99px;
+	background-color: #2e3047;
+	cursor: pointer;
 }
 
 .hamburger {
-    position: relative;
-    top: calc(50% - 2px);
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 32px;
+	position: relative;
+	top: calc(50% - 2px);
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 32px;
 }
 
-.hamburger>span,
-.hamburger>span::before,
-.hamburger>span::after {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 4px;
-    border-radius: 99px;
-    background-color: #FFF;
-    transition-duration: .25s;
+.hamburger > span,
+.hamburger > span::before,
+.hamburger > span::after {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 4px;
+	border-radius: 99px;
+	background-color: #fff;
+	transition-duration: 0.25s;
 }
 
-.hamburger>span::before {
-    content: '';
-    top: -8px;
+.hamburger > span::before {
+	content: "";
+	top: -8px;
 }
 
-.hamburger>span::after {
-    content: '';
-    top: 8px;
+.hamburger > span::after {
+	content: "";
+	top: 8px;
 }
 
-.menu-toggle.is-active .hamburger>span {
-    transform: rotate(45deg);
+.menu-toggle.is-active .hamburger > span {
+	transform: rotate(45deg);
 }
 
-.menu-toggle.is-active .hamburger>span::before {
-    top: 0;
-    transform: rotate(0deg);
+.menu-toggle.is-active .hamburger > span::before {
+	top: 0;
+	transform: rotate(0deg);
 }
 
-.menu-toggle.is-active .hamburger>span::after {
-    top: 0;
-    transform: rotate(90deg);
+.menu-toggle.is-active .hamburger > span::after {
+	top: 0;
+	transform: rotate(90deg);
 }
 
 .wrapper .sidebar {
-    flex: -1 -1 0;
-    max-width: 300px;
-    padding: 6rem 3rem;
-    background-color: #46597c;
+	flex: -1 -1 0;
+	max-width: 300px;
+	padding: 6rem 3rem;
+	background-color: #46597c;
 }
 
 .wrapper .sidebar ul li {
-    margin: 0 -1rem;
+	margin: 0 -1rem;
 }
 
 .wrapper .sidebar ul li a {
-    display: block;
-    padding: 2em;
-    color: #ffffff;
-    text-decoration: none;
-    transition: 0.2s linear;
+	display: block;
+	padding: 2em;
+	color: #ffffff;
+	text-decoration: none;
+	transition: 0.2s linear;
 }
 
 .wrapper .sidebar ul li a i.uil {
-    font-size: 25px;
-    margin: 3%;
+	font-size: 25px;
+	margin: 3%;
 }
 
 .wrapper .sidebar ul li:hover,
 .wrapper .sidebar ul li.is-active {
-    background: #07222d;
-    border-right: 5px solid #46597c;
+	background: #07222d;
+	border-right: 5px solid #46597c;
 }
 
 @media (max-width: 1024px) {
-    .wrapper .sidebar {
-        max-width: 200px;
-        padding: 3rem 1rem;
-    }
+	.wrapper .sidebar {
+		max-width: 200px;
+		padding: 3rem 1rem;
+	}
 
-    .wrapper .sidebar ul li a {
-        padding: 1em;
-    }
+	.wrapper .sidebar ul li a {
+		padding: 1em;
+	}
 }
 
 @media (max-width: 898px) {
-    .menu-toggle {
-        display: block;
-    }
+	.menu-toggle {
+		display: block;
+	}
 
-    .content {
-        padding-top: 8rem;
-    }
+	.content {
+		padding-top: 8rem;
+	}
 
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: -300px;
-        height: 100vh;
-        width: 100%;
-        max-width: 300px;
-        transition: 0.2s linear;
-    }
+	.sidebar {
+		position: fixed;
+		top: 0;
+		left: -300px;
+		height: 100vh;
+		width: 100%;
+		max-width: 300px;
+		transition: 0.2s linear;
+	}
 
-    .sidebar.is-active {
-        left: 0;
-    }
+	.sidebar.is-active {
+		left: 0;
+	}
 }
 
 /* Patient Feedback Page */
 .feedbackContainer {
-    margin: 0 auto;
-    max-width: 700px;
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 25px;
-    background: #46597c;
-    height: 50%;
+	margin: 0 auto;
+	max-width: 700px;
+	width: 100%;
+	padding: 25px 30px;
+	border-radius: 25px;
+	background: #46597c;
+	height: 50%;
 }
 
-.feedbackContainer>h1 {
-    font-size: 46px;
-    margin: 30px;
-    text-align: center;
-    color: #ffffff;
+.feedbackContainer > h1 {
+	font-size: 46px;
+	margin: 30px;
+	text-align: center;
+	color: #ffffff;
 }
 
 .feedbackContainer form .card-details {
-    margin-top: 25px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+	margin-top: 25px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 form .card-details .card-box {
-    width: calc(100%/2 -20px);
-    margin-bottom: 15px;
+	width: calc(100% / 2 -20px);
+	margin-bottom: 15px;
 }
 
 .feedback {
-    width: 630px;
-    max-width: 630px;
-    height: 267px;
-    padding: 20px;
+	width: 630px;
+	max-width: 630px;
+	height: 267px;
+	padding: 20px;
 }
 
 @media (max-width: 1023px) {
-    .feedbackContainer {
-        max-width: 600px;
-        width: 100%;
-        padding: 25px 30px;
-        border-radius: 25px;
-        background: #46597c;
-        height: 50%;
-    }
+	.feedbackContainer {
+		max-width: 600px;
+		width: 100%;
+		padding: 25px 30px;
+		border-radius: 25px;
+		background: #46597c;
+		height: 50%;
+	}
 
-    .feedback {
-        width: 500px;
-        max-width: 500px;
-        height: 267px;
-    }
+	.feedback {
+		width: 500px;
+		max-width: 500px;
+		height: 267px;
+	}
 }
 
 @media (max-width: 503px) {
-    .feedback {
-        width: 450px;
-        max-width: 450px;
-        height: 267px;
-    }
+	.feedback {
+		width: 450px;
+		max-width: 450px;
+		height: 267px;
+	}
 }
 
 /* Patient/Doctor Profile Page */
 .profileContainer {
-    margin: 0 auto;
-    max-width: 700px;
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 25px;
-    background: #46597c;
-    height: 50%;
+	margin: 0 auto;
+	max-width: 700px;
+	width: 100%;
+	padding: 25px 30px;
+	border-radius: 25px;
+	background: #46597c;
+	height: 50%;
 }
 
-.profileContainer>h1 {
-    font-size: 46px;
-    margin: 30px;
-    text-align: center;
-    color: #ffffff;
+.profileContainer > h1 {
+	font-size: 46px;
+	margin: 30px;
+	text-align: center;
+	color: #ffffff;
 }
 
 @media (max-width: 1023px) {
-    .profileContainer {
-        max-width: 600px;
-        width: 100%;
-        padding: 25px 30px;
-        border-radius: 25px;
-        background: #46597c;
-        height: 50%;
-    }
+	.profileContainer {
+		max-width: 600px;
+		width: 100%;
+		padding: 25px 30px;
+		border-radius: 25px;
+		background: #46597c;
+		height: 50%;
+	}
 }
 
 .card-profile {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 2fr;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 2fr 2fr;
 }
 
 .card-profile h5 {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .card-profile h4 {
-    margin-bottom: 50px;
-    font-weight: 200;
+	margin-bottom: 50px;
+	font-weight: 200;
 }
 
 .buttonUpdate {
-    text-align: center;
+	text-align: center;
 }
 
 .buttonUpdate input {
-    padding: 10px;
-    font-size: 18px;
-    margin-top: 10px;
-    height: 100%;
-    width: 50%;
-    outline: none;
-    color: #fff;
-    border: none;
-    background: #07222d;
-    border-radius: 6px;
+	padding: 10px;
+	font-size: 18px;
+	margin-top: 10px;
+	height: 100%;
+	width: 50%;
+	outline: none;
+	color: #fff;
+	border: none;
+	background: #07222d;
+	border-radius: 6px;
 }
 
 /* Patient Settings Page */
 
-.settingContainer>h1 {
-    font-size: 46px;
-    margin: 30px;
-    text-align: center;
+.settingContainer > h1 {
+	font-size: 46px;
+	margin: 30px;
+	text-align: center;
 }
 
 .settingContainer .form {
-    width: 50%;
-    padding: 30px;
-    transition: margin-left 0.18s ease;
-    margin: 0 auto;
-    max-width: 500px;
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 25px;
-    background: #46597c;
+	width: 50%;
+	padding: 30px;
+	transition: margin-left 0.18s ease;
+	margin: 0 auto;
+	max-width: 500px;
+	width: 100%;
+	padding: 25px 30px;
+	border-radius: 25px;
+	background: #46597c;
 }
 
 .settingContainer.active .login {
-    margin-left: -50%;
-    opacity: 0;
-    transition: margin-left 0.18s ease, opacity 0.15s ease;
+	margin-left: -50%;
+	opacity: 0;
+	transition: margin-left 0.18s ease, opacity 0.15s ease;
 }
 
 .form-login .card-box input {
-    width: 100%;
+	width: 100%;
 }
 
 /* Patient Dashboard Page */
 
 .dashboardContainer {
-    margin: 0 auto;
-    max-width: 1224px;
-    width: 100%;
-    height: 50%;
-    justify-content: space-around;
+	margin: 0 auto;
+	max-width: 1224px;
+	width: 100%;
+	height: 50%;
+	justify-content: space-around;
 }
 
-.dashboardContainer .flexbox-container .flexbox-item>h1 {
-    font-size: 26px;
-    margin: 30px;
-    text-align: center;
-    color: #ffffff;
+.dashboardContainer .flexbox-container .flexbox-item > h1 {
+	font-size: 26px;
+	margin: 30px;
+	text-align: center;
+	color: #ffffff;
 }
 
 .flexbox-container {
-    height: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: center;
+	height: 50%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: center;
 }
 
 .flexbox-item {
-    border-radius: 25px;
-    height: 225px;
-    background: #46597c;
-    box-shadow: 0 0 10px rgba(252, 252, 252, 0.25);
-    width: 200px;
-    margin: 10px;
+	border-radius: 25px;
+	height: 225px;
+	background: #46597c;
+	box-shadow: 0 0 10px rgba(252, 252, 252, 0.25);
+	width: 200px;
+	margin: 10px;
 }
 
 .flexbox-item-1 {
-    min-width: 500px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    flex-grow: 2;
-    min-height: 10px;
-    align-items: center;
-    margin-right: 150px;
-    margin-left: 50px;
+	min-width: 500px;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	flex-grow: 2;
+	min-height: 10px;
+	align-items: center;
+	margin-right: 150px;
+	margin-left: 50px;
 }
 
 .flexbox-item-2 {
-    min-height: 200px;
-    min-width: 300px;
-    flex-grow: 1;
+	min-height: 200px;
+	min-width: 300px;
+	flex-grow: 1;
 }
 
 .flexbox-item-2 .myProfile {
-    margin-left: 50px;
-    margin-bottom: 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+	margin-left: 50px;
+	margin-bottom: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 .flexbox-item-3 {
-    margin-left: 50px;
-    min-height: 320px;
-    min-width: 1024px;
-    flex-grow: 4;
+	margin-left: 50px;
+	min-height: 320px;
+	min-width: 1024px;
+	flex-grow: 4;
 }
 
 .flexbox-item-3 .aboutHealth {
-    margin-left: 50px;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    display: grid;
-    grid-template-columns: 2fr 4fr;
+	margin-left: 50px;
+	align-items: center;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	display: grid;
+	grid-template-columns: 2fr 4fr;
 }
 
 .flexbox-item-3 .aboutHealth .img {
-    display: block;
+	display: block;
 }
 
 .flexbox-item-3 .aboutHealth h1 {
-    font-size: 28px;
-    color: #ffffff;
+	font-size: 28px;
+	color: #ffffff;
 }
 
 .flexbox-item-3 .aboutHealth .text-secondary {
-    margin-left: 30px;
-    margin-right: 30px;
+	margin-left: 30px;
+	margin-right: 30px;
 }
 
 .flexbox-item-3 .aboutHealth p {
-    margin-top: 20px;
-    font-size: 16px;
-    text-align: justify;
-
+	margin-top: 20px;
+	font-size: 16px;
+	text-align: justify;
 }
 
 .flexbox-item-3 .aboutHealth .aboutHealthFAQ {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: 1fr 6fr;
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: 1fr 6fr;
 }
 
 .flexbox-item-3 .aboutHealth .aboutHealthFAQ:hover p,
 .flexbox-item-3 .aboutHealth .aboutHealthFAQ:hover h5,
 .flexbox-item-3 .aboutHealth .aboutHealthFAQ:hover .uil {
-    color: rgba(255, 255, 255, 0.63);
+	color: rgba(255, 255, 255, 0.63);
 }
 
 .flexbox-item-3 .aboutHealth .aboutHealthFAQ .uil {
-    font-size: 30px;
-    margin: 3%;
+	font-size: 30px;
+	margin: 3%;
 }
 
 .flexbox-item-3 .aboutHealth .aboutHealthFAQ h5 {
-    font-size: 16px;
+	font-size: 16px;
 }
 
 .flexbox-item-3 .aboutHealth .aboutHealthFAQ p {
-    margin-top: 0;
-    font-size: 14px;
+	margin-top: 0;
+	font-size: 14px;
 }
 
 .flexbox-item-4 {
-    margin-left: 50px;
-    flex-grow: 4;
-    /* height: 50px; */
+	margin-left: 50px;
+	flex-grow: 4;
+	/* height: 50px; */
 }
 
 .flexbox-item-4 .contacts {
-    margin-left: 20px;
-    display: grid;
-    grid-template-columns: 2fr 2fr 1fr;
-    align-items: center;
-    text-align: center;
+	margin-left: 20px;
+	display: grid;
+	grid-template-columns: 2fr 2fr 1fr;
+	align-items: center;
+	text-align: center;
 }
 
 .flexbox-item-4 .contacts .uil {
-    font-size: 35px;
-    text-align: end;
+	font-size: 35px;
+	text-align: end;
 }
 
 .flexbox-item-4 .contacts .socialMedia {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 .flexbox-item-4 .contacts .socialMedia p {
-    margin-top: 10px;
-    text-align: left;
+	margin-top: 10px;
+	text-align: left;
 }
 
 .flexbox-item-4 .contacts .moreDetails {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 .flexbox-item-4 .contacts .moreDetails p {
-    margin-top: 10px;
-    text-align: left;
+	margin-top: 10px;
+	text-align: left;
 }
 
 @media (max-width: 1296px) {
-    .dashboardContainer {
-        max-width: 1000px;
-        width: 100%;
-        height: 50%;
-        justify-content: space-around;
-    }
+	.dashboardContainer {
+		max-width: 1000px;
+		width: 100%;
+		height: 50%;
+		justify-content: space-around;
+	}
 
-    .flexbox-item-1 {
-        min-width: 850px;
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        flex-grow: 2;
-        min-height: 10px;
-        align-items: center;
-        margin-right: 150px;
-        margin-left: 50px;
-    }
+	.flexbox-item-1 {
+		min-width: 850px;
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		flex-grow: 2;
+		min-height: 10px;
+		align-items: center;
+		margin-right: 150px;
+		margin-left: 50px;
+	}
 
-    .flexbox-item-2 {
-        min-width: 850px;
-        flex-grow: 2;
-        min-height: 10px;
-        align-items: center;
-        margin-right: 150px;
-        margin-left: 50px;
-    }
+	.flexbox-item-2 {
+		min-width: 850px;
+		flex-grow: 2;
+		min-height: 10px;
+		align-items: center;
+		margin-right: 150px;
+		margin-left: 50px;
+	}
 
-    .flexbox-item-3 {
-        min-width: 850px;
-        flex-grow: 2;
-        min-height: 10px;
-        margin-right: 150px;
-        margin-left: 50px;
-        min-height: 320px;
-    }
+	.flexbox-item-3 {
+		min-width: 850px;
+		flex-grow: 2;
+		min-height: 10px;
+		margin-right: 150px;
+		margin-left: 50px;
+		min-height: 320px;
+	}
 
-    .flexbox-item-3 .aboutHealth {
-        display: block;
-    }
+	.flexbox-item-3 .aboutHealth {
+		display: block;
+	}
 
-    .flexbox-item-3 .aboutHealth .img {
-        display: none;
-    }
+	.flexbox-item-3 .aboutHealth .img {
+		display: none;
+	}
 
-    .flexbox-item-4 {
-        min-width: 850px;
-        margin-left: 50px;
-        flex-grow: 4;
-        margin-right: 150px;
-    }
+	.flexbox-item-4 {
+		min-width: 850px;
+		margin-left: 50px;
+		flex-grow: 4;
+		margin-right: 150px;
+	}
 }
 
 @media (max-width: 1040px) {
-    .dashboardContainer {
-        max-width: 800px;
-        width: 100%;
-        height: 50%;
-        justify-content: space-around;
-    }
+	.dashboardContainer {
+		max-width: 800px;
+		width: 100%;
+		height: 50%;
+		justify-content: space-around;
+	}
 
-    .flexbox-item-1 {
-        min-width: 250px;
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        flex-grow: 2;
-        min-height: 10px;
-        align-items: center;
-        margin-right: 150px;
-        margin-left: 50px;
-    }
+	.flexbox-item-1 {
+		min-width: 250px;
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		flex-grow: 2;
+		min-height: 10px;
+		align-items: center;
+		margin-right: 150px;
+		margin-left: 50px;
+	}
 
-    .flexbox-item-2 {
-        min-width: 100px;
-        flex-grow: 1;
-        min-height: 10px;
-        align-items: center;
-        margin-right: 150px;
-        margin-left: 50px;
-    }
+	.flexbox-item-2 {
+		min-width: 100px;
+		flex-grow: 1;
+		min-height: 10px;
+		align-items: center;
+		margin-right: 150px;
+		margin-left: 50px;
+	}
 
-    .flexbox-item-3 {
-        min-width: 250px;
-        flex-grow: 2;
-        min-height: 10px;
-        margin-right: 150px;
-        margin-left: 50px;
-        min-height: 320px;
-    }
+	.flexbox-item-3 {
+		min-width: 250px;
+		flex-grow: 2;
+		min-height: 10px;
+		margin-right: 150px;
+		margin-left: 50px;
+		min-height: 320px;
+	}
 
-    .flexbox-item-3 .aboutHealth {
-        display: block;
-    }
+	.flexbox-item-3 .aboutHealth {
+		display: block;
+	}
 
-    .flexbox-item-3 .aboutHealth .img {
-        display: none;
-    }
+	.flexbox-item-3 .aboutHealth .img {
+		display: none;
+	}
 
-    .flexbox-item-4 {
-        min-width: 250px;
-        margin-left: 50px;
-        flex-grow: 4;
-        margin-right: 150px;
-    }
+	.flexbox-item-4 {
+		min-width: 250px;
+		margin-left: 50px;
+		flex-grow: 4;
+		margin-right: 150px;
+	}
 }
 
 @media (max-width: 767px) {
-    .flexbox-item-3 {
-        min-width: 250px;
-        flex-grow: 2;
-        margin-right: 150px;
-        margin-left: 50px;
-        min-height: 380px;
-    }
+	.flexbox-item-3 {
+		min-width: 250px;
+		flex-grow: 2;
+		margin-right: 150px;
+		margin-left: 50px;
+		min-height: 380px;
+	}
 }
 
 @media (max-width: 689px) {
-    .flexbox-item-3 {
-        min-width: 250px;
-        flex-grow: 2;
-        margin-right: 150px;
-        margin-left: 50px;
-        min-height: 420px;
-    }
+	.flexbox-item-3 {
+		min-width: 250px;
+		flex-grow: 2;
+		margin-right: 150px;
+		margin-left: 50px;
+		min-height: 420px;
+	}
 }
 
 @media (max-width: 599px) {
-    .flexbox-item-3 {
-        min-width: 250px;
-        min-height: 480px;
-    }
+	.flexbox-item-3 {
+		min-width: 250px;
+		min-height: 480px;
+	}
 
-    .flexbox-item-3 .aboutHealth .text-secondary {
-        margin-left: 0;
-        margin-right: 10px;
-    }
-
+	.flexbox-item-3 .aboutHealth .text-secondary {
+		margin-left: 0;
+		margin-right: 10px;
+	}
 }
 
 @media (max-width: 599px) {
-    .flexbox-item-3 {
-        min-width: 250px;
-        min-height: 480px;
-    }
+	.flexbox-item-3 {
+		min-width: 250px;
+		min-height: 480px;
+	}
 
-    .flexbox-item-3 .aboutHealth .text-secondary {
-        margin-left: 0;
-        margin-right: 10px;
-    }
+	.flexbox-item-3 .aboutHealth .text-secondary {
+		margin-left: 0;
+		margin-right: 10px;
+	}
 
-    .flexbox-item-4 .contacts .socialMedia {
-        display: none;
-    }
+	.flexbox-item-4 .contacts .socialMedia {
+		display: none;
+	}
 }
 
 @media (max-width: 542px) {
-    .flexbox-item-3 {
-        min-width: 250px;
-        min-height: 520px;
-    }
+	.flexbox-item-3 {
+		min-width: 250px;
+		min-height: 520px;
+	}
 }
 
 @media (max-width: 529px) {
-    .flexbox-item-3 {
-        min-width: 250px;
-        min-height: 580px;
-    }
+	.flexbox-item-3 {
+		min-width: 250px;
+		min-height: 580px;
+	}
 }
 
 /* Patient Prediction History page */
 .historyContainer {
-    margin: 0 auto;
-    max-width: 900px;
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 25px;
-    background: #46597c;
-    height: 50%;
+	margin: 0 auto;
+	max-width: 900px;
+	width: 100%;
+	padding: 25px 30px;
+	border-radius: 25px;
+	background: #46597c;
+	height: 50%;
 }
 
-.historyContainer>h1 {
-    font-size: 46px;
-    margin: 30px;
-    text-align: center;
-    color: #ffffff;
+.historyContainer > h1 {
+	font-size: 46px;
+	margin: 30px;
+	text-align: center;
+	color: #ffffff;
 }
 
 .buttons {
-    text-align: center;
+	text-align: center;
 }
 
 .buttons input {
-    padding: 10px;
-    font-size: 18px;
-    margin-top: 10px;
-    margin-left: 10px;
-    outline: none;
-    color: #fff;
-    border: none;
-    background: #07222d;
-    border-radius: 6px;
+	padding: 10px;
+	font-size: 18px;
+	margin-top: 10px;
+	margin-left: 10px;
+	outline: none;
+	color: #fff;
+	border: none;
+	background: #07222d;
+	border-radius: 6px;
 }
 
 table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 30px;
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 30px;
 }
 
 td,
 th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
 }
 
 td {
-    background-color: #dddddd;
+	background-color: #dddddd;
 }
 
 tr .uil {
-    font-size: 20px;
+	font-size: 20px;
 }
 
 /* Patient Symptoms select page */
 .checkboxContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: center;
-    background: #ffffff;
-    padding-bottom: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: center;
+	background: #ffffff;
+	padding-bottom: 10px;
 }
 
 .checkbox {
-    border: 4px solid #07222d;
-    margin-top: 10px;
+	border: 4px solid #07222d;
+	margin-top: 10px;
 }
 
 .checkbox input,
 .checkbox label {
-    margin: 10px;
+	margin: 10px;
 }
 
 .buttonSubmit {
-    text-align: center;
+	text-align: center;
 }
 
 .buttonSubmit input {
-    padding: 10px;
-    font-size: 18px;
-    margin-top: 30px;
-    height: 100%;
-    width: 25%;
-    outline: none;
-    color: #fff;
-    border: none;
-    background: #07222d;
-    border-radius: 6px;
+	padding: 10px;
+	font-size: 18px;
+	margin-top: 30px;
+	height: 100%;
+	width: 25%;
+	outline: none;
+	color: #fff;
+	border: none;
+	background: #07222d;
+	border-radius: 6px;
 }
 
 @media (max-width: 1188px) {
-    .historyContainer {
-        max-width: 700px;
-    }
+	.historyContainer {
+		max-width: 700px;
+	}
 }
 
 /* Patient Prediction Result Page */
 .suggestedDocContainer {
-    background: #ffffff;
-    max-width: 500px;
-    text-align: center;
-    margin: 50px auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-radius: 6px;
+	background: #ffffff;
+	max-width: 500px;
+	text-align: center;
+	margin: 50px auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 6px;
 }
 
 .suggestDocDetails {
-    margin-top: 20px;
-    margin-bottom: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 /* Admin Dashboard Page */
 .dashboardContainerAdmin {
-    margin: 0 auto;
-    max-width: 1024px;
-    width: 100%;
-    height: 50%;
-    justify-content: space-around;
+	margin: 0 auto;
+	max-width: 1024px;
+	width: 100%;
+	height: 50%;
+	justify-content: space-around;
 }
 
-.dashboardContainerAdmin .flexbox-containerAdmin .flexbox-itemAdmin>h1 {
-    font-size: 26px;
-    margin: 30px;
-    text-align: center;
-    color: #ffffff;
+.dashboardContainerAdmin .flexbox-containerAdmin .flexbox-itemAdmin > h1 {
+	font-size: 26px;
+	margin: 30px;
+	text-align: center;
+	color: #ffffff;
 }
 
 .flexbox-containerAdmin {
-    height: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: center;
+	height: 50%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: center;
 }
 
 .flexbox-itemAdmin {
-    border-radius: 25px;
-    height: 225px;
-    background: #46597c;
-    box-shadow: 0 0 10px rgba(252, 252, 252, 0.25);
-    width: 300px;
-    margin: 10px;
+	border-radius: 25px;
+	height: 225px;
+	background: #46597c;
+	box-shadow: 0 0 10px rgba(252, 252, 252, 0.25);
+	width: 300px;
+	margin: 10px;
 }
 
 .Adminflexbox-item-1 {
-    margin-left: 50px;
-    margin-right: 100px;
-    margin-top: 80px;
-    flex-grow: 2;
-    min-height: 200px;
-    min-width: 200px;
+	margin-left: 50px;
+	margin-right: 100px;
+	margin-top: 80px;
+	flex-grow: 2;
+	min-height: 200px;
+	min-width: 200px;
 }
 
 .Adminflexbox-item-2 {
-    margin-left: 100px;
-    flex-grow: 2;
-    margin-top: 80px;
-    min-height: 200px;
-    min-width: 200px;
+	margin-left: 100px;
+	flex-grow: 2;
+	margin-top: 80px;
+	min-height: 200px;
+	min-width: 200px;
 }
 
 .Adminflexbox-item-3 {
-    margin-left: 50px;
-    margin-right: 100px;
-    min-height: 200px;
-    margin-top: 150px;
-    min-width: 200px;
-    flex-grow: 2;
+	margin-left: 50px;
+	margin-right: 100px;
+	min-height: 200px;
+	margin-top: 150px;
+	min-width: 200px;
+	flex-grow: 2;
 }
 
 .Adminflexbox-item-4 {
-    margin-left: 100px;
-    margin-top: 150px;
-    flex-grow: 2;
-    min-height: 200px;
-    min-width: 200px;
+	margin-left: 100px;
+	margin-top: 150px;
+	flex-grow: 2;
+	min-height: 200px;
+	min-width: 200px;
 }
 
 .content {
-    margin-top: 50px;
+	margin-top: 50px;
 }
 
 .Adminflexbox-item-1 span,
 .Adminflexbox-item-2 span,
 .Adminflexbox-item-3 span,
 .Adminflexbox-item-4 span {
-    font-weight: 500;
-    font-size: 80px;
-    margin-left: 55px;
+	font-weight: 500;
+	font-size: 80px;
+	margin-left: 55px;
 }
 
 .Adminflexbox-item-1 p,
 .Adminflexbox-item-2 p,
 .Adminflexbox-item-3 p,
 .Adminflexbox-item-4 p {
-    font-weight: 500;
-    font-size: 45px;
-    margin-left: 55px;
+	font-weight: 500;
+	font-size: 45px;
+	margin-left: 55px;
 }
 
 @media (max-width: 1208px) {
+	.Adminflexbox-item-1 span,
+	.Adminflexbox-item-2 span,
+	.Adminflexbox-item-3 span,
+	.Adminflexbox-item-4 span {
+		font-weight: 500;
+		font-size: 70px;
+		margin-left: 55px;
+	}
 
-    .Adminflexbox-item-1 span,
-    .Adminflexbox-item-2 span,
-    .Adminflexbox-item-3 span,
-    .Adminflexbox-item-4 span {
-        font-weight: 500;
-        font-size: 70px;
-        margin-left: 55px;
-    }
-
-    .Adminflexbox-item-1 p,
-    .Adminflexbox-item-2 p,
-    .Adminflexbox-item-3 p,
-    .Adminflexbox-item-4 p {
-        font-weight: 500;
-        font-size: 35px;
-        margin-left: 55px;
-    }
+	.Adminflexbox-item-1 p,
+	.Adminflexbox-item-2 p,
+	.Adminflexbox-item-3 p,
+	.Adminflexbox-item-4 p {
+		font-weight: 500;
+		font-size: 35px;
+		margin-left: 55px;
+	}
 }
 
 @media (max-width: 1077px) {
-    .Adminflexbox-item-1 {
-        margin-left: 50px;
-        margin-right: 50px;
-        margin-top: 80px;
-        flex-grow: 2;
-        min-height: 200px;
-        min-width: 200px;
-    }
+	.Adminflexbox-item-1 {
+		margin-left: 50px;
+		margin-right: 50px;
+		margin-top: 80px;
+		flex-grow: 2;
+		min-height: 200px;
+		min-width: 200px;
+	}
 
-    .Adminflexbox-item-2 {
-        margin-left: 50px;
-        flex-grow: 2;
-        margin-top: 80px;
-        min-height: 200px;
-        min-width: 200px;
-    }
+	.Adminflexbox-item-2 {
+		margin-left: 50px;
+		flex-grow: 2;
+		margin-top: 80px;
+		min-height: 200px;
+		min-width: 200px;
+	}
 
-    .Adminflexbox-item-3 {
-        margin-left: 50px;
-        margin-right: 50px;
-        min-height: 200px;
-        margin-top: 150px;
-        min-width: 200px;
-        flex-grow: 2;
-    }
+	.Adminflexbox-item-3 {
+		margin-left: 50px;
+		margin-right: 50px;
+		min-height: 200px;
+		margin-top: 150px;
+		min-width: 200px;
+		flex-grow: 2;
+	}
 
-    .Adminflexbox-item-4 {
-        margin-left: 50px;
-        margin-top: 150px;
-        flex-grow: 2;
-        min-height: 200px;
-        min-width: 200px;
-    }
-
+	.Adminflexbox-item-4 {
+		margin-left: 50px;
+		margin-top: 150px;
+		flex-grow: 2;
+		min-height: 200px;
+		min-width: 200px;
+	}
 }
 
 @media (max-width: 903px) {
-    .Adminflexbox-item-1 {
-        margin-left: 80px;
-        margin-right: 50px;
-        flex-grow: 2;
-        min-height: 200px;
-        min-width: 150px;
-    }
+	.Adminflexbox-item-1 {
+		margin-left: 80px;
+		margin-right: 50px;
+		flex-grow: 2;
+		min-height: 200px;
+		min-width: 150px;
+	}
 
-    .Adminflexbox-item-2 {
-        margin-top: 50px;
-        margin-left: 80px;
-        flex-grow: 2;
-        margin-right: 50px;
-        min-height: 200px;
-        min-width: 150px;
-    }
+	.Adminflexbox-item-2 {
+		margin-top: 50px;
+		margin-left: 80px;
+		flex-grow: 2;
+		margin-right: 50px;
+		min-height: 200px;
+		min-width: 150px;
+	}
 
-    .Adminflexbox-item-3 {
-        margin-left: 80px;
-        margin-right: 50px;
-        margin-top: 50px;
-        min-height: 200px;
-        min-width: 150px;
-        flex-grow: 2;
-    }
+	.Adminflexbox-item-3 {
+		margin-left: 80px;
+		margin-right: 50px;
+		margin-top: 50px;
+		min-height: 200px;
+		min-width: 150px;
+		flex-grow: 2;
+	}
 
-    .Adminflexbox-item-4 {
-        margin-left: 80px;
-        margin-top: 50px;
-        margin-right: 50px;
-        flex-grow: 2;
-        min-height: 200px;
-        min-width: 150px;
-    }
-
+	.Adminflexbox-item-4 {
+		margin-left: 80px;
+		margin-top: 50px;
+		margin-right: 50px;
+		flex-grow: 2;
+		min-height: 200px;
+		min-width: 150px;
+	}
 }
 
 @media (max-width: 898px) {
+	.Adminflexbox-item-1 {
+		margin-left: 50px;
+		flex-grow: 2;
+	}
 
-    .Adminflexbox-item-1 {
-        margin-left: 50px;
-        flex-grow: 2;
-    }
+	.Adminflexbox-item-2 {
+		margin-left: 50px;
+		margin-top: 80px;
+		flex-grow: 2;
+	}
 
-    .Adminflexbox-item-2 {
-        margin-left: 50px;
-        margin-top: 80px;
-        flex-grow: 2;
-    }
+	.Adminflexbox-item-3 {
+		margin-left: 50px;
+		flex-grow: 2;
+	}
 
-    .Adminflexbox-item-3 {
-        margin-left: 50px;
-        flex-grow: 2;
-    }
+	.Adminflexbox-item-4 {
+		margin-left: 50px;
+		flex-grow: 2;
+	}
 
-    .Adminflexbox-item-4 {
-        margin-left: 50px;
-        flex-grow: 2;
-    }
-
-    .content {
-        margin-top: -40px;
-    }
-
+	.content {
+		margin-top: -40px;
+	}
 }
