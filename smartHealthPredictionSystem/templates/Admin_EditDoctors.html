@@ -46,38 +46,56 @@
                     <li><a href="{% url 'admin_view_patient' %}"><i class="uil uil-user"></i></i>View Patients</a></li>
                     <li><a href="{% url 'admin_view_prediction' %}"><i class="uil uil-medkit"></i>Prediction Results</a>
                     </li>
-                    <li><a href="{% url 'welcome' %}"><i class="uil uil-signout"></i>Logout</a></li>
+                    <li><a href="{% url 'logout_user' %}"><i class="uil uil-signout"></i>Logout</a></li>
                 </ul>
             </div>
+            
+            {% ifequal error "create" %}
+            <script>
+                alert('Doctor Updated Successfully');
+                window.location="{% url 'admin_view_doctor' %}";
+            </script>
+            {% endifequal %}
             <div class="registrationContainer">
                 <h1>
                     Edit Doctor
                 </h1>
-                <form action="#">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="card-details">
                         <div class="card-box">
                             <span class="details">Email</span>
-                            <input type="text" placeholder="p.randolph@gmail.com">
+                            <input type="text" value="{{doc.user.email}}" name='email' required>
                         </div>
                         <div class="card-box">
                             <span class="details">Contact</span>
-                            <input type="text" placeholder="+230 56325896">
+                            <input type="text" value="{{doc.contact}}" name='contact' required>
                         </div>
                         <div class="card-box">
                             <span class="details">Address</span>
-                            <input type="text" placeholder="Quatre Bornes, Mauritius">
+                            <input type="text" value="{{doc.address}}" name="address" required>
                         </div>
                         <div class="card-box">
                             <span class="details">Specialist</span>
-                            <input type="text" placeholder="Cardiologist">
+                            <input type="text" value="{{doc.category}}" name= "category" required>
                         </div>
                     </div>
-                    <div class="buttons">
-                        <a href="#"><input type="submit" value="Authorize"></a>
-                        <a href="#"><input type="submit" value="Active"></a>
+
+                    <div class="status">
+                        <span style="font-weight: 500; font-size: 18px;">User status</span>
+                        <div class="category" style="margin-top:10px;">
+                            {% if doc.status == 1 %}
+                            <input type="radio" name="userStatus" value="1" checked/>Authorized
+                            <input type="radio" name="userStatus" value="2" />Unauthorized
+                            {% else %}
+                            <input type="radio" name="userStatus" value="1" />Authorized
+                            <input type="radio" name="userStatus" value="2" checked/>Unauthorized
+                            {% endif %}
+                        </div>
                     </div>
+
                     <div class="buttonRegister">
-                        <a href="{% url 'admin_view_doctor' %}"><input type="text" value="Add Doctor"></a>
+                        <input type="submit" value="Add Doctor">
                     </div>
 
                 </form>

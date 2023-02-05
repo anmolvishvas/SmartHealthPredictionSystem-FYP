@@ -47,62 +47,68 @@
                     <li><a href="{% url 'admin_view_patient' %}"><i class="uil uil-user"></i></i>View Patients</a></li>
                     <li><a href="{% url 'admin_view_prediction' %}"><i class="uil uil-medkit"></i>Prediction Results</a>
                     </li>
-                    <li><a href="{% url 'welcome' %}"><i class="uil uil-signout"></i>Logout</a></li>
+                    <li><a href="{% url 'logout_user' %}"><i class="uil uil-signout"></i>Logout</a></li>
                 </ul>
             </div>
+            {% ifequal error "error" %}
+            <script>
+                alert('Error while adding a new doctor');
+                window.location="{% url 'admin_add_doctor' %}";
+            </script>
+            {% endifequal %}
             <div class="registrationContainer">
                 <h1>
                     Add Doctor
                 </h1>
-                <form action="#">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="card-details">
                         <div class="card-box">
                             <span class="details">First Name</span>
-                            <input type="text" placeholder="Enter your first name">
+                            <input type="text" placeholder="Enter your first name" name="firstName">
                         </div>
                         <div class="card-box">
                             <span class="details">Last Name</span>
-                            <input type="text" placeholder="Enter your last name">
+                            <input type="text" placeholder="Enter your last name" name="lastName">
                         </div>
                         <div class="card-box">
                             <span class="details">Username</span>
-                            <input type="text" placeholder="Enter your username">
+                            <input type="text" placeholder="Enter your username" name="username">
                         </div>
                         <div class="card-box">
                             <span class="details">Password</span>
-                            <input type="text" placeholder="Enter your password">
+                            <input type="text" placeholder="Enter your password" name="password">
                         </div>
 
                         <div class="card-box">
                             <span class="details">Email</span>
-                            <input type="text" placeholder="Enter your email">
+                            <input type="text" placeholder="Enter your email" name="email">
                         </div>
                         <div class="card-box">
                             <span class="details">Contact</span>
-                            <input type="text" placeholder="Enter your phone number">
+                            <input type="text" placeholder="Enter your phone number" name="contact">
                         </div>
                         <div class="card-box">
                             <span class="details">DOB</span>
-                            <input type="date" max="2023-04-28">
+                            <input type="date" max="2023-04-28" name="dateOfBirth">
                         </div>
                         <div class="card-box">
                             <span class="details">Address</span>
-                            <input type="text" placeholder="Enter your address">
+                            <input type="text" placeholder="Enter your address" name="address">
                         </div>
                         <div class="card-box">
                             <span class="details">Photo</span>
-                            <input type="file" placeholder="Upload your photo">
+                            <input type="file" placeholder="Upload your photo" name="image">
                         </div>
                         <div class="card-box">
                             <span class="details">Specialist</span>
-                            <input type="text" placeholder="Enter your position">
+                            <input type="text" placeholder="Enter your position" name="category">
                         </div>
                     </div>
 
                     <div class="buttonRegister">
                         <input type="submit" value="Add Doctor">
                     </div>
-
                 </form>
             </div>
         </div>
