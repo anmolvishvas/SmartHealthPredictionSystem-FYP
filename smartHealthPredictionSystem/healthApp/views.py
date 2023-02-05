@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from django.contrib.auth.models import User, auth
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import *
 import datetime
@@ -40,16 +41,52 @@ def RegistrationPage(request):
             Doctor.objects.create(user=user, contact=contact,
                                   dob=dob, address=address, image=photo, status=2)
 
-        # user.save()
         if user is not None:
-            auth.login(request, user)
-            return render(request, 'Admin_Dashboard.html')
+            if type == "Patient":
+                auth.login(request, user)
+                return render(request, 'Patient_Dashboard.html')
+            else:
+                return render(request, 'loginPage.html')
+
     else:
         return render(request, 'registrationPage.html')
 
 
 def LoginPage(request):
-    return render(request, 'LoginPage.html')
+    error = ""
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(username=username, password=password)
+        sign = ""
+        if user:
+            try:
+                sign = Patient.objects.get(user=user)
+            except:
+                pass
+            if sign:
+                login(request, user)
+                error = "patient"
+            else:
+                pure = False
+                try:
+                    pure = Doctor.objects.get(status=1, user=user)
+                except:
+                    pass
+                if pure:
+                    login(request, user)
+                    error = "doctor"
+                else:
+                    login(request, user)
+                    error = "notmember"
+            if user.is_staff:
+                login(request, user)
+                error = "admin"
+        else:
+            error = "not"
+    d = {'error': error}
+    return render(request, 'LoginPage.html', d)
 
 # admin views
 
