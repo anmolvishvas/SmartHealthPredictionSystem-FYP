@@ -90,6 +90,7 @@ def LoginPage(request):
     d = {'error': error}
     return render(request, 'LoginPage.html', d)
 
+
 def logout_user(request):
     logout(request)
     return redirect('welcome')
@@ -116,16 +117,16 @@ def AdminAddDoctorPage(request):
         category = request.POST["category"]
 
         if User.objects.filter(username=username).exists():
-            error ="Username is already taken"
+            error = "Username is already taken"
         if User.objects.filter(email=email).exists():
-            error ="Email is already taken"
+            error = "Email is already taken"
         user = User.objects.create_user(
             username=username, first_name=firstName, last_name=lastName, email=email, password=password)
         Doctor.objects.create(user=user, contact=contact,
-                                  dob=dob, address=address, image=photo, category=category, status=1)
+                              dob=dob, address=address, image=photo, category=category, status=1)
         if user is not None:
-                return redirect('admin_view_doctor')
-        
+            return redirect('admin_view_doctor')
+
         error = "error"
     d = {'error': error}
     return render(request, 'Admin_AddDoctors.html', d)
@@ -158,6 +159,8 @@ def AdminEditDoctorPage(request, pid):
 @login_required(login_url="login")
 def delete_doctor(request, pid):
     doc = Doctor.objects.get(id=pid)
+    BlacklistedDoctor.objects.create(user=doc.user, contact=doc.contact, dob=doc.dob,
+                                     address=doc.address, image=doc.image, category=doc.category, status=2)
     doc.delete()
     return redirect('admin_view_doctor')
 
@@ -169,16 +172,16 @@ def AdminViewDoctorPage(request):
     return render(request, 'Admin_ViewDoctors.html', doctor_dict)
 
 
+@login_required(login_url="login")
 def AdminViewPatientPage(request):
     return render(request, 'Admin_ViewPatient.html')
 
 
+@login_required(login_url="login")
 def AdminViewPredictionResultsPage(request):
     return render(request, 'Admin_ViewPredictionResult.html')
 
 # patient views
-
-
 def PatientDashboardPage(request):
     return render(request, 'Patient_Dashboard.html')
 

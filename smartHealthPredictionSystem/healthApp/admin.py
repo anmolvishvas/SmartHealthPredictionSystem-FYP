@@ -4,3 +4,5 @@ from .models import *
 # Register your models here.
 admin.site.register(Doctor)
 admin.site.register(Patient)
+admin.site.register(BlacklistedPatient)
+admin.site.register(BlacklistedDoctor)
