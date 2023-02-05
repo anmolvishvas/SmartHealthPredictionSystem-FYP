@@ -1,8 +1,10 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import *
+from .forms import DoctorForm
 import datetime
 
 # Create your views here.
@@ -88,23 +90,83 @@ def LoginPage(request):
     d = {'error': error}
     return render(request, 'LoginPage.html', d)
 
+def logout_user(request):
+    logout(request)
+    return redirect('welcome')
+
 # admin views
-
-
+@login_required(login_url="login")
 def AdminDashboardPage(request):
     return render(request, 'Admin_Dashboard.html')
 
 
+@login_required(login_url="login")
 def AdminAddDoctorPage(request):
-    return render(request, 'Admin_AddDoctors.html')
+    error = ""
+    if request.method == "POST":
+        firstName = request.POST["firstName"]
+        lastName = request.POST["lastName"]
+        username = request.POST["username"]
+        password = request.POST["password"]
+        email = request.POST["email"]
+        contact = request.POST["contact"]
+        dob = request.POST["dateOfBirth"]
+        address = request.POST["address"]
+        photo = request.FILES["image"]
+        category = request.POST["category"]
+
+        if User.objects.filter(username=username).exists():
+            error ="Username is already taken"
+        if User.objects.filter(email=email).exists():
+            error ="Email is already taken"
+        user = User.objects.create_user(
+            username=username, first_name=firstName, last_name=lastName, email=email, password=password)
+        Doctor.objects.create(user=user, contact=contact,
+                                  dob=dob, address=address, image=photo, category=category, status=1)
+        if user is not None:
+                return redirect('admin_view_doctor')
+        
+        error = "error"
+    d = {'error': error}
+    return render(request, 'Admin_AddDoctors.html', d)
 
 
-def AdminEditDoctorPage(request):
-    return render(request, 'Admin_EditDoctors.html')
+@login_required(login_url="login")
+def AdminEditDoctorPage(request, pid):
+    doc = Doctor.objects.get(id=pid)
+
+    error = ""
+    if request.method == 'POST':
+        email = request.POST['email']
+        contact = request.POST['contact']
+        address = request.POST['address']
+        category = request.POST['category']
+        status = request.POST['userStatus']
+
+        doc.user.email = email
+        doc.contact = contact
+        doc.category = category
+        doc.address = address
+        doc.status = status
+        doc.user.save()
+        doc.save()
+        error = "create"
+    dict = {'error': error, 'doc': doc}
+    return render(request, 'Admin_EditDoctors.html', dict)
 
 
+@login_required(login_url="login")
+def delete_doctor(request, pid):
+    doc = Doctor.objects.get(id=pid)
+    doc.delete()
+    return redirect('admin_view_doctor')
+
+
+@login_required(login_url="login")
 def AdminViewDoctorPage(request):
-    return render(request, 'Admin_ViewDoctors.html')
+    doctors = Doctor.objects.all()
+    doctor_dict = {'doctors': doctors}
+    return render(request, 'Admin_ViewDoctors.html', doctor_dict)
 
 
 def AdminViewPatientPage(request):

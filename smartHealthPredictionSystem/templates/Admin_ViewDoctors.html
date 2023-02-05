@@ -41,12 +41,12 @@
                     <li><a href="{% url 'admin_dashboard' %}"><i class="uil uil-create-dashboard"></i>
                             Dashboard</a></a></li>
                     <li><a href="{% url 'admin_add_doctor' %}"><i class="uil uil-user-plus"></i></i>Add Doctors</a></li>
-                    <li><a href="{% url 'admin_view_doctor' %}"><i class="uil uil-user-md"></i></i>View Doctors</a></li>
-                    <li class="is-active"><a href="{% url 'admin_view_patient' %}"><i class="uil uil-user"></i></i>View
-                            Patients</a></li>
+                    <li class="is-active"><a href="{% url 'admin_view_doctor' %}"><i
+                                class="uil uil-user-md"></i></i>View Doctors</a></li>
+                    <li><a href="{% url 'admin_view_patient' %}"><i class="uil uil-user"></i></i>View Patients</a></li>
                     <li><a href="{% url 'admin_view_prediction' %}"><i class="uil uil-medkit"></i>Prediction Results</a>
                     </li>
-                    <li><a href="{% url 'welcome' %}"><i class="uil uil-signout"></i>Logout</a></li>
+                    <li><a href="{% url 'logout_user' %}"><i class="uil uil-signout"></i>Logout</a></li>
                 </ul>
             </div>
             <div class="historyContainer">
@@ -61,6 +61,7 @@
                 </div>
                 <table>
                     <tr>
+                        <th>#</th>
                         <th>Full Name</th>
                         <th>Email</th>
                         <th>Contact</th>
@@ -70,21 +71,33 @@
                         <th>Assign</th>
                         <th>Action</th>
                     </tr>
+                    
+                    {% for i in doctors%}
                     <tr>
-                        <td>Paul Randolph</td>
-                        <td>p.randolph@gmail.com</td>
-                        <td>+230 56325896</td>
-                        <td>Quatre Bornes, Mauritius</td>
-                        <td>Cardiologist</td>
-                        <td>Unauthorized</td>
-                        <td>Blacklist</td>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+                        <td>{{i.user.email}}</td>
+                        <td>{{i.contact}}</td>
+                        <td>{{i.address}}</td>
+                        <td>{{i.category}}</td>
+                        <td>{% if i.status == 1 %}
+                            <b>Authorized</b>
+                        {% else %}
+                            <b>Unauthorized</b>
+                            {% endif %}</td>
+                        <td>{% if i.status == 1 %}
+                            Active
+                            {% else %}
+                            Blacklisted
+                            {% endif %}</td>
                         <td>
-                            <a href="{% url 'admin_edit_doctor' %}">
+                            <a href="{% url 'admin_edit_doctor' i.id%}">
                                 <i class="uil uil-edit"></i>
                             </a>
-                            <i class="uil uil-trash-alt"></i>
+                            <a href="{% url 'delete_doctor' i.id %}" ><i class="uil uil-trash-alt"></i></a>
                         </td>
                     </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>
