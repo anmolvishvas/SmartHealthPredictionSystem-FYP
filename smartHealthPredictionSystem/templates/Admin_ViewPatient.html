@@ -61,21 +61,25 @@
                 </div>
                 <table>
                     <tr>
+                        <th>#</th>
                         <th>Full Name</th>
                         <th>Email</th>
                         <th>Contact</th>
                         <th>Address</th>
                         <th>Action</th>
                     </tr>
+                    {% for i in patients%}
                     <tr>
-                        <td>Georgia Miller</td>
-                        <td>georgia@gmail.com</td>
-                        <td>+230 56325896</td>
-                        <td>Quatre Bornes, Mauritius</td>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+                        <td>{{i.user.email}}</td>
+                        <td>{{i.contact}}</td>
+                        <td>{{i.address}}</td>
                         <td>
-                            <i class="uil uil-trash-alt"></i>
+                            <a href="{% url 'delete_patient' i.id %}" ><i class="uil uil-trash-alt"></i></a>
                         </td>
                     </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>

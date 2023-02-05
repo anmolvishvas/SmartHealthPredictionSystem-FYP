@@ -96,6 +96,8 @@ def logout_user(request):
     return redirect('welcome')
 
 # admin views
+
+
 @login_required(login_url="login")
 def AdminDashboardPage(request):
     return render(request, 'Admin_Dashboard.html')
@@ -174,7 +176,18 @@ def AdminViewDoctorPage(request):
 
 @login_required(login_url="login")
 def AdminViewPatientPage(request):
-    return render(request, 'Admin_ViewPatient.html')
+    patients = Patient.objects.all()
+    patient_dict = {'patients': patients}
+    return render(request, 'Admin_ViewPatient.html', patient_dict)
+
+
+@login_required(login_url="login")
+def delete_patient(request, pid):
+    patient = Patient.objects.get(id=pid)
+    BlacklistedPatient.objects.create(user=patient.user, contact=patient.contact, dob=patient.dob,
+                                      address=patient.address, image=patient.image)
+    patient.delete()
+    return redirect('admin_view_patient')
 
 
 @login_required(login_url="login")
@@ -182,6 +195,8 @@ def AdminViewPredictionResultsPage(request):
     return render(request, 'Admin_ViewPredictionResult.html')
 
 # patient views
+
+
 def PatientDashboardPage(request):
     return render(request, 'Patient_Dashboard.html')
 
