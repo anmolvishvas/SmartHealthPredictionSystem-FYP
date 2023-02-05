@@ -6,6 +6,8 @@ from django.contrib import messages
 from .models import *
 from .forms import DoctorForm
 import datetime
+from django.utils import timezone
+
 
 # Create your views here.
 # main views
@@ -96,6 +98,8 @@ def logout_user(request):
     return redirect('welcome')
 
 # admin views
+
+
 @login_required(login_url="login")
 def AdminDashboardPage(request):
     return render(request, 'Admin_Dashboard.html')
@@ -174,7 +178,18 @@ def AdminViewDoctorPage(request):
 
 @login_required(login_url="login")
 def AdminViewPatientPage(request):
-    return render(request, 'Admin_ViewPatient.html')
+    patients = Patient.objects.all()
+    patient_dict = {'patients': patients}
+    return render(request, 'Admin_ViewPatient.html', patient_dict)
+
+
+@login_required(login_url="login")
+def delete_patient(request, pid):
+    patient = Patient.objects.get(id=pid)
+    BlacklistedPatient.objects.create(user=patient.user, contact=patient.contact, dob=patient.dob,
+                                      address=patient.address, image=patient.image)
+    patient.delete()
+    return redirect('admin_view_patient')
 
 
 @login_required(login_url="login")
@@ -182,16 +197,84 @@ def AdminViewPredictionResultsPage(request):
     return render(request, 'Admin_ViewPredictionResult.html')
 
 # patient views
+
+
+@login_required(login_url="login")
 def PatientDashboardPage(request):
-    return render(request, 'Patient_Dashboard.html')
+    user = request.user
+    if user.is_authenticated:
+        patient = user.patient
+        context = {
+            'username': user.username,
+            'fullname': user.first_name + " " + user.last_name,
+            'contact': patient.contact,
+            'email': user.email,
+            'address': patient.address,
+            'image': patient.image
+        }
+        return render(request, 'Patient_Dashboard.html', context)
+    else:
+        return render(request, 'loginPage.html')
 
 
+@login_required(login_url="login")
 def PatientProfilePage(request):
-    return render(request, 'Patient_Profile.html')
+    user = request.user
+    if user.is_authenticated:
+        patient = user.patient
+        context = {
+            'username': user.username,
+            'fullname': user.first_name + " " + user.last_name,
+            'contact': patient.contact,
+            'email': user.email,
+            'address': patient.address,
+            'image': patient.image,
+            'dob':patient.dob
+        }
+        return render(request, 'Patient_Profile.html', context)
+    else:
+        return render(request, 'loginPage.html')
 
 
+@login_required(login_url="login")
 def PatientEditProfilePage(request):
-    return render(request, 'Patient_UpdateProfile.html')
+    message = ""
+    user = User.objects.get(id=request.user.id)
+    error = ""
+    try:
+        sign = Patient.objects.get(user=user)
+        error = "patient"
+    except:
+        sign = Doctor.objects.get(user=user)
+    if request.method == 'POST':
+        firstname = request.POST['firstName']
+        lastname = request.POST['lastName']
+        email = request.POST['email']
+        contact = request.POST['contact']
+        address = request.POST['address']
+        dob = request.POST['dob']
+        try:
+            image = request.FILES['image']
+            sign.image = image
+            sign.save()
+        except:
+            pass
+        sign.user.first_name = firstname
+        sign.user.last_name = lastname
+        sign.user.email = email
+        sign.contact = contact
+        if error != "patient":
+            category = request.POST['type']
+            sign.category = category
+            sign.save()
+        sign.address = address
+        sign.dob = datetime.datetime.strptime(dob, "%B %d, %Y").date()
+        sign.user.save()
+        sign.save()
+        message = "create"
+        return redirect('patient_profile')
+    d = {'error':error,'message':message,'userr':sign}
+    return render(request,'Patient_UpdateProfile.html',d)
 
 
 def PatientFeedbackPage(request):

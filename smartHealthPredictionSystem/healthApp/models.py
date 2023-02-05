@@ -6,7 +6,7 @@ DOCTOR_STATUS = ((1, 'Authorize'), (2, 'UnAuthorize'))
 
 
 class Patient(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     contact = models.CharField(max_length=100, null=True)
     dob = models.DateField(null=True)
     address = models.CharField(max_length=100, null=True)

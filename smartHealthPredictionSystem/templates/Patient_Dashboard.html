@@ -51,8 +51,8 @@
             <div class="dashboardContainer">
                 <div class="flexbox-container">
                     <div class="flexbox-item flexbox-item-1">
-                        <h1>Good Day, Mrs. Georgia Miller</h1>
-                        <img src="{% static 'Images/Georgia Miller Patient Avatar.png' %}" alt="">
+                        <h1>Good Day, {{fullname}}</h1>
+                        <img src="{{image.url}}" alt="" width="200" height="200" style="margin-right: 20px;">
                     </div>
 
                     <div class="flexbox-item flexbox-item-2">
@@ -62,7 +62,7 @@
                                 <h5>Full Name:</h5>
                             </div>
                             <div class="col-md-9 text-secondary">
-                                <h5>Georgia Miller</h5>
+                                <h5>{{fullname}}</h5>
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@
                                 <h5>Phone Number:</h5>
                             </div>
                             <div class="col-md-9 text-secondary">
-                                <h5>+230 - 5896 2563</h5>
+                                <h5> {{contact}}</h5>
                             </div>
                         </div>
                         <div class="myProfile">
@@ -87,7 +87,7 @@
                                 <h5>Address:</h5>
                             </div>
                             <div class="col-md-9 text-secondary">
-                                <h5>Quatre Bornes, Mauritius</h5>
+                                <h5>{{address}}</h5>
                             </div>
                         </div>
                     </div>
