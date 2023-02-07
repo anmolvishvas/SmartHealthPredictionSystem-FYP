@@ -48,63 +48,88 @@
                     <li><a href="{% url 'logout_user' %}"><i class="uil uil-signout"></i>Logout</a></li>
                 </ul>
             </div>
+            {% ifequal terror "create" %}
+            <script>
+                alert('Profile Updated Successfully');
+                window.location="{% url 'doctor_profile' %}";
+            </script>
+            {% endifequal %}
             <div class="profileContainer">
                 <h1>
                     My Details
                 </h1>
-                <div class="card-profile">
-                    <div class="col-md-3">
-                        <h5>Full Name:</h5>
+                <form action="" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+                    <div class="card-profile">
+                        <div class="col-md-3">
+                            <h5>First Name:</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <input type="text" value="{{userr.user.first_name}}" name="firstName">
+                        </div>
                     </div>
-                    <div class="col-md-9 text-secondary">
-                        <input type="text" placeholder="Paul Randolph">
+                    <div class="card-profile">
+                        <div class="col-md-3">
+                            <h5>Last Name:</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <input type="text" value="{{userr.user.last_name}}" name="lastName">
+                        </div>
                     </div>
-                </div>
-                <div class="card-profile">
-                    <div class="col-md-3">
-                        <h5>Image:</h5>
+                    <div class="card-profile">
+                        <div class="col-md-3">
+                            <h5>Image:</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <input type="file" placeholder="Upload your photo" name="image">
+                            <img src="{{userr.image.url}}" width="200" height="150">
+                        </div>
                     </div>
-                    <div class="col-md-9 text-secondary">
-                        <input type="file" placeholder="Upload your photo">
-                        <img src="{% static 'Images/Paul Randolph Doctor Avatar.jpg' %}">
+                    <div class="card-profile">
+                        <div class="col-md-3">
+                            <h5>Email Address:</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <input type="text" placeholder="MM/DD/YYYY" value="{{userr.user.email}}" name="email">
+                        </div>
                     </div>
-                </div>
-                <div class="card-profile">
-                    <div class="col-md-3">
-                        <h5>Email Address:</h5>
+                    <div class="card-profile">
+                        <div class="col-md-3">
+                            <h5>Date Of Birth:</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <input type="text" value="{{userr.dob}}" name="dob" readonly="readonly">
+                        </div>
                     </div>
-                    <div class="col-md-9 text-secondary">
-                        <input type="text" placeholder="p.randolph@gmail.com">
+                    <div class="card-profile">
+                        <div class="col-md-3">
+                            <h5>Contact Number:</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <input type="text" value="{{userr.contact}}" name="contact">
+                        </div>
                     </div>
-                </div>
-                <div class="card-profile">
-                    <div class="col-md-3">
-                        <h5>Date Of Birth:</h5>
+                    <div class="card-profile">
+                        <div class="col-md-3">
+                            <h5>Address:</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <input type="text" value="{{userr.address}}" name="address">
+                        </div>
                     </div>
-                    <div class="col-md-9 text-secondary">
-                        <input type="date" placeholder="28/09/1997">
+                    <div class="card-profile">
+                        <div class="col-md-3">
+                            <h5>Category:</h5>
+                        </div>
+                        <div class="col-md-9 text-secondary">
+                            <input type="text" value="{{userr.category}}" name="type">
+                        </div>
                     </div>
-                </div>
-                <div class="card-profile">
-                    <div class="col-md-3">
-                        <h5>Contact Number:</h5>
+                    <div class="buttonUpdate">
+                        <input type="submit" value="Update">
                     </div>
-                    <div class="col-md-9 text-secondary">
-                        <input type="text" placeholder="+230 -  5632 5896">
-                    </div>
-                </div>
-                <div class="card-profile">
-                    <div class="col-md-3">
-                        <h5>Address:</h5>
-                    </div>
-                    <div class="col-md-9 text-secondary">
-                        <input type="text" placeholder="Quatre Bornes - Mauritiusr">
-                    </div>
-                </div>
+                </form>
 
-                <div class="buttonUpdate">
-                    <a href="{% url 'doctor_profile' %}"><input type="submit" value="Update"></a>
-                </div>
             </div>
         </div>
         <script src="{% static 'js/mainjs.js' %}"></script>

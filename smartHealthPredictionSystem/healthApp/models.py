@@ -27,7 +27,7 @@ class BlacklistedPatient(models.Model):
 
 class Doctor(models.Model):
     status = models.IntegerField(DOCTOR_STATUS, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     contact = models.CharField(max_length=100, null=True)
     address = models.CharField(max_length=100, null=True)
     category = models.CharField(max_length=100, null=True)
