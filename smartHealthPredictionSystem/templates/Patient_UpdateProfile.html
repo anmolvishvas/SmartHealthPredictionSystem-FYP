@@ -52,7 +52,7 @@
             </div>
             {% ifequal terror "create" %}
             <script>
-                alert('Detailed Updated Successfully');
+                alert('Profile Updated Successfully');
                 window.location="{% url 'patient_profile' %}";
             </script>
             {% endifequal %}
@@ -119,12 +119,12 @@
                             <input type="text" value="{{userr.address}}" name="address">
                         </div>
                     </div>
-
+                    
                     <div class="buttonUpdate">
                         <input type="submit" value="Update">
                     </div>
-            </form>
-        </div>
+                </form>
+            </div>
         </div>
 
         <script src="{% static 'js/mainjs.js' %}"></script>

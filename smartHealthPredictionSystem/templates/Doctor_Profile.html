@@ -57,7 +57,7 @@
                         <h5>Full Name:</h5>
                     </div>
                     <div class="col-md-9 text-secondary">
-                        <h4>Paul Randolph</h4>
+                        <h4>{{fullname}}</h4>
                     </div>
                 </div>
                 <div class="card-profile">
@@ -65,7 +65,7 @@
                         <h5>Image:</h5>
                     </div>
                     <div class="col-md-9 text-secondary">
-                        <img src="{% static 'Images/Paul Randolph Doctor Avatar.jpg' %}">
+                        <img src="{{image.url}}" width="200" height="150">
                     </div>
                 </div>
                 <div class="card-profile">
@@ -73,7 +73,7 @@
                         <h5>Email Address:</h5>
                     </div>
                     <div class="col-md-9 text-secondary">
-                        <h4>p.randolph@gmail.com</h4>
+                        <h4>{{email}}</h4>
                     </div>
                 </div>
                 <div class="card-profile">
@@ -81,7 +81,7 @@
                         <h5>Date Of Birth:</h5>
                     </div>
                     <div class="col-md-9 text-secondary">
-                        <h4>18/09/1997</h4>
+                        <h4>{{dob}}</h4>
                     </div>
                 </div>
                 <div class="card-profile">
@@ -89,7 +89,7 @@
                         <h5>Contact Number:</h5>
                     </div>
                     <div class="col-md-9 text-secondary">
-                        <h4>+230 - 5632 5896</h4>
+                        <h4>{{contact}}</h4>
                     </div>
                 </div>
                 <div class="card-profile">
@@ -97,7 +97,15 @@
                         <h5>Address:</h5>
                     </div>
                     <div class="col-md-9 text-secondary">
-                        <h4>Quatre Bornes - Mauritius</h4>
+                        <h4>{{address}}</h4>
+                    </div>
+                </div>
+                <div class="card-profile">
+                    <div class="col-md-3">
+                        <h5>Category:</h5>
+                    </div>
+                    <div class="col-md-9 text-secondary">
+                        <h4>{{category}}</h4>
                     </div>
                 </div>
 

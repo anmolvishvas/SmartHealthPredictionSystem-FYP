@@ -240,12 +240,7 @@ def PatientProfilePage(request):
 def PatientEditProfilePage(request):
     message = ""
     user = User.objects.get(id=request.user.id)
-    error = ""
-    try:
-        sign = Patient.objects.get(user=user)
-        error = "patient"
-    except:
-        sign = Doctor.objects.get(user=user)
+    sign = Patient.objects.get(user=user)
     if request.method == 'POST':
         firstname = request.POST['firstName']
         lastname = request.POST['lastName']
@@ -263,17 +258,13 @@ def PatientEditProfilePage(request):
         sign.user.last_name = lastname
         sign.user.email = email
         sign.contact = contact
-        if error != "patient":
-            category = request.POST['type']
-            sign.category = category
-            sign.save()
         sign.address = address
         sign.dob = datetime.datetime.strptime(dob, "%B %d, %Y").date()
         sign.user.save()
         sign.save()
         message = "create"
         return redirect('patient_profile')
-    d = {'error':error,'message':message,'userr':sign}
+    d = {'message':message,'userr':sign}
     return render(request,'Patient_UpdateProfile.html',d)
 
 
@@ -298,16 +289,75 @@ def PatientSettingsPage(request):
 
 
 # doctor views
+@login_required(login_url="login")
 def DoctorDashboardPage(request):
-    return render(request, 'Doctor_Dashboard.html')
+    user = request.user
+    if user.is_authenticated:
+        doctor = user.doctor
+        # print(doctor)
+        context = {
+            'username': user.username,
+            'fullname': user.first_name + " " + user.last_name,
+            'contact': doctor.contact,
+            'email': user.email,
+            'address': doctor.address,
+            'image': doctor.image
+        }
+        return render(request, 'Doctor_Dashboard.html', context)
+    else:
+        return render(request, 'loginPage.html')
 
-
+@login_required(login_url="login")
 def DoctorProfilePage(request):
-    return render(request, 'Doctor_Profile.html')
+    user = request.user
+    if user.is_authenticated:
+        doctor = user.doctor
+        context = {
+            'username': user.username,
+            'fullname': user.first_name + " " + user.last_name,
+            'contact': doctor.contact,
+            'email': user.email,
+            'address': doctor.address,
+            'image': doctor.image,
+            'dob':doctor.dob,
+            'category': doctor.category
+        }
+        return render(request, 'Doctor_Profile.html', context)
+    else:
+        return render(request, 'loginPage.html')
 
-
+@login_required(login_url="login")
 def DoctorEditProfilePage(request):
-    return render(request, 'Doctor_EditProfile.html')
+    message = ""
+    user = User.objects.get(id=request.user.id)
+    sign = Doctor.objects.get(user=user)
+    if request.method == 'POST':
+        firstname = request.POST['firstName']
+        lastname = request.POST['lastName']
+        email = request.POST['email']
+        contact = request.POST['contact']
+        address = request.POST['address']
+        dob = request.POST['dob']
+        try:
+            image = request.FILES['image']
+            sign.image = image
+            sign.save()
+        except:
+            pass
+        sign.user.first_name = firstname
+        sign.user.last_name = lastname
+        sign.user.email = email
+        sign.contact = contact
+        category = request.POST['type']
+        sign.category = category
+        sign.address = address
+        sign.dob = datetime.datetime.strptime(dob, "%b. %d, %Y").date()
+        sign.user.save()
+        sign.save()
+        message = "create"
+        return redirect('doctor_profile')
+    d = {'message':message,'userr':sign}
+    return render(request,'Doctor_EditProfile.html',d)
 
 
 def DoctorViewPredictionResultsPage(request):
