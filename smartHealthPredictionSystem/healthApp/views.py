@@ -1,12 +1,10 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import *
-from .forms import DoctorForm
 import datetime
-from django.utils import timezone
 
 
 # Create your views here.
@@ -37,7 +35,6 @@ def RegistrationPage(request):
             messages.error(request, "Email is already taken")
         user = User.objects.create_user(
             username=username, first_name=firstName, last_name=lastName, email=email, password=password)
-        print(type)
         if type == "Patient":
             Patient.objects.create(
                 user=user, contact=contact, dob=dob, address=address, image=photo)
@@ -61,7 +58,6 @@ def LoginPage(request):
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
-
         user = authenticate(username=username, password=password)
         sign = ""
         if user:
@@ -284,8 +280,31 @@ def PatientHealthPredictionResultsPage(request):
     return render(request, 'Patient_HealthPredictionResult.html')
 
 
+@login_required(login_url="login")
 def PatientSettingsPage(request):
-    return render(request, 'Patient_Settings.html')
+    sign = 0
+    user = User.objects.get(username=request.user.username)
+    error = ""
+    
+    if not request.user.is_staff:
+        sign = Patient.objects.get(user=user)
+    message = ""
+    if request.method=="POST":
+        old_pass = request.POST['old_password']
+        new_password = request.POST['new_password']
+        c_new_password = request.POST['c_new_password']
+        if not request.user.check_password(old_pass):
+            message = "Incorrect"
+        else:
+            if new_password == c_new_password:
+                update = User.objects.get(username__exact=request.user.username)
+                update.set_password(new_password)
+                update.save()
+                message = "yes"
+            else:
+                message = "not"
+    d = {'error':error,'message':message,'data':sign}
+    return render(request,'Patient_Settings.html',d)
 
 
 # doctor views
@@ -294,7 +313,6 @@ def DoctorDashboardPage(request):
     user = request.user
     if user.is_authenticated:
         doctor = user.doctor
-        # print(doctor)
         context = {
             'username': user.username,
             'fullname': user.first_name + " " + user.last_name,
@@ -363,6 +381,28 @@ def DoctorEditProfilePage(request):
 def DoctorViewPredictionResultsPage(request):
     return render(request, 'Doctor_PredictionResult.html')
 
-
+@login_required(login_url="login")
 def DoctorSettingsPage(request):
-    return render(request, 'Doctor_Settings.html')
+    sign = 0
+    user = User.objects.get(username=request.user.username)
+    error = ""
+    
+    if not request.user.is_staff:
+        sign = Doctor.objects.get(user=user)
+    message = ""
+    if request.method=="POST":
+        old_pass = request.POST['old_password']
+        new_password = request.POST['new_password']
+        c_new_password = request.POST['c_new_password']
+        if not request.user.check_password(old_pass):
+            message = "Incorrect"
+        else:
+            if new_password == c_new_password:
+                update = User.objects.get(username__exact=request.user.username)
+                update.set_password(new_password)
+                update.save()
+                message = "yes"
+            else:
+                message = "not"
+    d = {'error':error,'message':message,'data':sign}
+    return render(request,'Doctor_Settings.html',d)

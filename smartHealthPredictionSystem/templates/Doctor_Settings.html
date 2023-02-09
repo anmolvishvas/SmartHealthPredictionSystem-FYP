@@ -48,34 +48,51 @@
                     <li><a href="{% url 'logout_user' %}"><i class="uil uil-signout"></i>Logout</a></li>
                 </ul>
             </div>
+            {% ifequal message "yes" %}
+            <script>
+                alert('Password Changed.....');
+                window.location=('{% url "logout" %}')
+            </script>
+            {% endifequal %}
+            {% ifequal message "not" %}
+            <script>
+                alert('New Password and Confirm Password are not match');
+            </script>
+            {% endifequal %}
+            {% ifequal message "Incorrect" %}
+            <script>
+                alert('Old password is incorrect');
+            </script>
+            {% endifequal %}
+
             <div class="loginContainer">
                 <h1>
                     Change Password
                 </h1>
                 <div class="form">
                     <div class="form-login">
-                        <form action="#">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
                             <div class="card-details">
                                 <div class="card-box">
                                     <span class="details">Old Password</span>
-                                    <input type="text" placeholder="Enter your username">
+                                    <input type="password" placeholder="Enter your Old Password" name="old_password">
                                 </div>
                                 <div class="card-box">
                                     <span class="details">New Password</span>
-                                    <input type="text" placeholder="Enter your username">
+                                    <input type="password" placeholder="Enter your new password" name="new_password">
                                 </div>
                                 <div class="card-box">
                                     <span class="details">Confirm Password</span>
-                                    <input type="text" placeholder="Enter your username">
+                                    <input type="password" placeholder="Confirm your new password" name="c_new_password">
                                 </div>
                             </div>
-                    </div>
-                    <div class="input-field button">
-                        <input type="submit" value="Submit">
+                            <div class="input-field button">
+                                <input type="submit" value="Submit">
+                            </div>
+                        </form>
                     </div>
                 </div>
-
-                </form>
             </div>
         </div>
 
