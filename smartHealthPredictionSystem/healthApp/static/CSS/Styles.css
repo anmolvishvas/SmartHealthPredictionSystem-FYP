@@ -990,6 +990,22 @@ form .card-details .card-box {
 }
 
 /* Patient Prediction History page */
+.table-responsive {
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+.datatable-header {
+	min-width: 100%;
+}
+
+.datatable-body {
+	min-width: 100%;
+}
+
+table.dataTable {
+	width: 50%;
+}
 .historyContainer {
 	margin: 0 auto;
 	max-width: 900px;
