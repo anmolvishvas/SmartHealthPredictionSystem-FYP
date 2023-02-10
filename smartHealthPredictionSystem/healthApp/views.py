@@ -192,6 +192,17 @@ def delete_patient(request, pid):
 def AdminViewPredictionResultsPage(request):
     return render(request, 'Admin_ViewPredictionResult.html')
 
+@login_required(login_url="login")
+def AdminViewFeedbackPage(request):
+    feedback = Feedback.objects.all()
+    feedback_dict = {'feedbacks': feedback}
+    return render(request, 'Admin_ViewFeedback.html', feedback_dict)
+
+@login_required(login_url="login")
+def delete_feedback(request, pid):
+    feedback = Feedback.objects.get(id=pid)
+    feedback.delete()
+    return redirect('admin_view_feedback')
 # patient views
 
 

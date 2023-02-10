@@ -28,6 +28,8 @@ urlpatterns = [
     path('admin_dashboard', views.AdminDashboardPage, name="admin_dashboard"),
     path('admin_add_doctor', views.AdminAddDoctorPage, name='admin_add_doctor'),
     path('admin_view_doctor', views.AdminViewDoctorPage, name='admin_view_doctor'),
+    path('admin_view_feedback', views.AdminViewFeedbackPage, name='admin_view_feedback'),
+    path('delete_feedback<int:pid>', views.delete_feedback, name="delete_feedback"),
     path('admin_edit_doctor/<int:pid>/',
          views.AdminEditDoctorPage, name='admin_edit_doctor'),
     path('delete_doctor<int:pid>', views.delete_doctor, name="delete_doctor"),
