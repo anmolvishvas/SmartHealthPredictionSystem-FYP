@@ -50,19 +50,26 @@
                     <li><a href="{% url 'logout_user' %}"><i class="uil uil-signout"></i>Logout</a></li>
                 </ul>
             </div>
+            {% ifequal message "create" %}
+            <script>
+                alert('Send Feedback Successfully');
+                window.location="{% url 'patient_feedback' %}";
+            </script>
+            {% endifequal %}
             <div class="feedbackContainer">
                 <h1>
                     Send Feedback
                 </h1>
-                <form action="#">
+                <form action="" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
                     <div class="card-details">
                         <div class="card-box">
                             <span class="details">Username</span>
-                            <input type="text" placeholder="Enter your username">
+                            <input type="text" value="{{userr.user.username}}" name="username">
                         </div>
                         <div class="card-box">
                             <span class="details">Write a message</span>
-                            <textarea class="feedback" placeholder="Write your message"></textarea>
+                            <textarea class="feedback" placeholder="Write your message" name="msg"></textarea>
                         </div>
                     </div>
 

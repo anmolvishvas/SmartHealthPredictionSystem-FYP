@@ -266,7 +266,17 @@ def PatientEditProfilePage(request):
 
 @login_required(login_url="login")
 def PatientFeedbackPage(request):
-    return render(request, 'Patient_Feedback.html')
+    error = ""
+    user = User.objects.get(id=request.user.id)
+    sign = Patient.objects.get(user=user)
+    if request.method == "POST":
+        username = request.POST['username']
+        message = request.POST['msg']
+        username = User.objects.get(username=username)
+        Feedback.objects.create(user=username, messages=message)
+        error = "create"
+    d = {'message':error,'userr':sign}
+    return render(request,'Patient_Feedback.html',d)
 
 
 def PatientPredictionHistoryPage(request):

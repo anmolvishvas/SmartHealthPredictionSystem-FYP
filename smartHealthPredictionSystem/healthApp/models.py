@@ -55,4 +55,4 @@ class Feedback(models.Model):
     date = models.DateField(auto_now=True)
 
     def __str__(self):
-        return self.user.user.username
+        return self.user.username
