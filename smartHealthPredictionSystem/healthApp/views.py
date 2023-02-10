@@ -264,6 +264,7 @@ def PatientEditProfilePage(request):
     return render(request,'Patient_UpdateProfile.html',d)
 
 
+@login_required(login_url="login")
 def PatientFeedbackPage(request):
     return render(request, 'Patient_Feedback.html')
 
