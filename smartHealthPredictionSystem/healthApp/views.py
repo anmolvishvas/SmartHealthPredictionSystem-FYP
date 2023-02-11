@@ -192,6 +192,17 @@ def delete_patient(request, pid):
 def AdminViewPredictionResultsPage(request):
     return render(request, 'Admin_ViewPredictionResult.html')
 
+@login_required(login_url="login")
+def AdminViewFeedbackPage(request):
+    feedback = Feedback.objects.all()
+    feedback_dict = {'feedbacks': feedback}
+    return render(request, 'Admin_ViewFeedback.html', feedback_dict)
+
+@login_required(login_url="login")
+def delete_feedback(request, pid):
+    feedback = Feedback.objects.get(id=pid)
+    feedback.delete()
+    return redirect('admin_view_feedback')
 # patient views
 
 
@@ -264,8 +275,19 @@ def PatientEditProfilePage(request):
     return render(request,'Patient_UpdateProfile.html',d)
 
 
+@login_required(login_url="login")
 def PatientFeedbackPage(request):
-    return render(request, 'Patient_Feedback.html')
+    error = ""
+    user = User.objects.get(id=request.user.id)
+    sign = Patient.objects.get(user=user)
+    if request.method == "POST":
+        username = request.POST['username']
+        message = request.POST['msg']
+        username = User.objects.get(username=username)
+        Feedback.objects.create(user=username, messages=message)
+        error = "create"
+    d = {'message':error,'userr':sign}
+    return render(request,'Patient_Feedback.html',d)
 
 
 def PatientPredictionHistoryPage(request):
