@@ -109,7 +109,12 @@ def logout_user(request):
 
 @login_required(login_url="login")
 def AdminDashboardPage(request):
-    return render(request, 'Admin_Dashboard.html')
+    doctor_count = Doctor.objects.count()
+    patient_count = Patient.objects.count()
+    prediction_count = PredictionData.objects.count()
+    feedback_count = Feedback.objects.count()
+    user_count = doctor_count+patient_count
+    return render(request, 'Admin_Dashboard.html', {'doctor_count': doctor_count, 'user_count': user_count, 'prediction_count': prediction_count, 'feedback_count': feedback_count})
 
 
 @login_required(login_url="login")

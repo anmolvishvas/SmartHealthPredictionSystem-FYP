@@ -56,28 +56,28 @@
                 <div class="flexbox-containerAdmin">
                     <div class="flexbox-itemAdmin Adminflexbox-item-1">
                         <div class="content">
-                            <span>8</span>
+                            <span>{{ doctor_count }}</span>
                             <p>Total Doctors</p>
                         </div>
                     </div>
 
                     <div class="flexbox-itemAdmin Adminflexbox-item-2">
                         <div class="content">
-                            <span>8</span>
+                            <span>{{ user_count }}</span>
                             <p>Total Users</p>
                         </div>
                     </div>
 
                     <div class="flexbox-itemAdmin Adminflexbox-item-3">
                         <div class="content">
-                            <span>8</span>
+                            <span>{{ prediction_count }}</span>
                             <p>Total Prediction</p>
                         </div>
                     </div>
 
                     <div class="flexbox-itemAdmin Adminflexbox-item-4">
                         <div class="content">
-                            <span>8</span>
+                            <span>{{ feedback_count }}</span>
                             <p>Total Feedback</p>
                         </div>
                     </div>
@@ -85,6 +85,7 @@
             </div>
         </div>
 
+        <script src="{% static 'js/nav.js' %}"></script>
         <script src="{% static 'js/mainjs.js' %}"></script>
     </body>
 
