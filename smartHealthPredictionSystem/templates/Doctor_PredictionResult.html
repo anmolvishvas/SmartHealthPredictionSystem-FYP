@@ -76,24 +76,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for i in prediction_data%}
                             <tr>
-                                <td>1</td>
-                                <td>11/08/2022</td>
-                                <td>Georgia Miller</td>
-                                <td>100%</td>
-                                <td>Unhealthy</td>
-                                <td>Headache, joint pain</td>
-                                <td><i class="uil uil-trash-alt"></i></td>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{i.patient}}</td>
+                                <td>{{i.created}}</td>
+                                <td>{{i.prediction_accuracy}}</td>
+                                <td>{{i.result}}</td>
+                                <td>{{i.values_list}}</td>
+                                <td>
+                                    <a href="{% url 'delete_prediction_doc' i.id %}" ><i class="uil uil-trash-alt"></i></a>
+                                </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>12/08/2022</td>
-                                <td>Georgia Miller</td>
-                                <td>100%</td>
-                                <td>Unhealthy</td>
-                                <td>Headache, joint pain</td>
-                                <td><i class="uil uil-trash-alt"></i></td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

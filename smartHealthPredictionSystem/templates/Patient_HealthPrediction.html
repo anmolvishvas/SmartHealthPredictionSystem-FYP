@@ -52,29 +52,47 @@
                     <li><a href="{% url 'logout_user' %}"><i class="uil uil-signout"></i>Logout</a></li>
                 </ul>
             </div>
+
+            {% if predictionDetails %}
             <div class="historyContainer">
+                <h1>
+                    Prediction Result
+                </h1>
+                <table>
+                    <tr>
+                        <th>Model Name</th>
+                        <th>Prediction Output</th>
+                    </tr>
+                    {% for i, j in predictionDetails.items %}
+                    <tr>
+                        <td>{{i}}</td>
+                        <td>{{j}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            {% else %}
+            <div class="PredictionContainer">
                 <h1>
                     Select Symptoms
                 </h1>
-                <div class="checkboxContainer">
-                    <script>
-                        for (let i = 0; i < 48; i++) {
-                            saySomething();
-                        }
 
-                        function saySomething() {
-                            document.writeln(
-                                '<div class="checkbox">' +
-                                '<input type="checkbox" id="symptom" name="symptom" value="symptom">' +
-                                '<label for="symptom">Symptom</label><br></div>'
-                            );
-                        }
-                    </script>
-                </div>
-                <div class="buttonSubmit">
-                    <a href="{% url 'patient_health_prediction_result' %}"><input type="submit" value="Update"></a>
-                </div>
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="checkboxContainer">
+                        {% for i in alldisease %}
+                        <div class="checkbox">
+                            <input type="checkbox" name="{{i}}">
+                            <label>{{i}}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="buttonSubmit">
+                        <input type="submit" value="Update">
+                    </div>
+                </form>               
             </div>
+            {% endif %}
         </div>
         <script src="{% static 'js/mainjs.js' %}"></script>
 
