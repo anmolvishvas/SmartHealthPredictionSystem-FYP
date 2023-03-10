@@ -344,10 +344,15 @@ form .buttonRegister input {
 	left: 0;
 }
 
-.input-field i.showHidePw {
+.input-field i.showHidePw,
+.input-field i.eyes{
 	right: 0;
 	cursor: pointer;
 	padding: 10px;
+}
+
+.input-field i.showHidePw{
+	display: none;
 }
 
 .form .button {
