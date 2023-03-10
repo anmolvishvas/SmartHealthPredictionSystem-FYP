@@ -1016,6 +1016,16 @@ table.dataTable {
 	height: 50%;
 }
 
+.PredictionContainer {
+	margin: 0 auto;
+	max-width: 1500px;
+	width: 100%;
+	padding: 25px 30px;
+	border-radius: 25px;
+	background: #46597c;
+	height: 50%;
+}
+.PredictionContainer > h1,
 .historyContainer > h1 {
 	font-size: 46px;
 	margin: 30px;
@@ -1062,17 +1072,21 @@ tr .uil {
 
 /* Patient Symptoms select page */
 .checkboxContainer {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-content: center;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
 	background: #ffffff;
 	padding-bottom: 10px;
+	grid-gap: 10px;
+	height: 520px;
+	overflow: auto;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .checkbox {
 	border: 4px solid #07222d;
 	margin-top: 10px;
+	height: fit-content;
 }
 
 .checkbox input,
@@ -1096,6 +1110,23 @@ tr .uil {
 	background: #07222d;
 	border-radius: 6px;
 }
+@media (max-width: 1800px) {
+	.PredictionContainer {
+		max-width: 1024px;
+	}
+}
+
+@media (max-width: 1320px) {
+	.PredictionContainer {
+		max-width: 700px;
+	}
+	.checkboxContainer {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.checkbox {
+		text-align: center;
+	}
+}
 
 @media (max-width: 1188px) {
 	.historyContainer {
@@ -1103,20 +1134,13 @@ tr .uil {
 	}
 }
 
-/* Patient Prediction Result Page */
-.suggestedDocContainer {
-	background: #ffffff;
-	max-width: 500px;
-	text-align: center;
-	margin: 50px auto;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	border-radius: 6px;
-}
-
-.suggestDocDetails {
-	margin-top: 20px;
-	margin-bottom: 20px;
+@media (max-width: 747px) {
+	.PredictionContainer {
+		max-width: 500px;
+	}
+	.checkboxContainer {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
 /* Admin Dashboard Page */

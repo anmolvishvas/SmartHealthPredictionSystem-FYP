@@ -54,7 +54,5 @@ urlpatterns = [
          name='patient_prediction_history'),
     path('patient_health_prediction', views.PatientHealthPredictionPage,
          name='patient_health_prediction'),
-    path('patient_health_prediction_result', views.PatientHealthPredictionResultsPage,
-         name='patient_health_prediction_result'),
     path('patient_settings', views.PatientSettingsPage, name='patient_settings'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
