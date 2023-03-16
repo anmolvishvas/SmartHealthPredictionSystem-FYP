@@ -18,15 +18,29 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 
+# chatbot
+from django.http import JsonResponse
+from .chatbot import chatbot_response
+
+# chatbot
+
+
+def chat(request):
+    if request.method == 'POST':
+        message = request.POST.get('message')
+        response = chatbot_response(message)
+        return JsonResponse({'response': response})
+    else:
+        return render(request, 'chat.html')
+
 # Create your views here.
 # main views
-
-
 def WelcomePage(request):
     return render(request, 'WelcomePage.html')
 
 
 def RegistrationPage(request):
+    error=""
     if request.method == "POST":
         firstName = request.POST["firstName"]
         lastName = request.POST["lastName"]
@@ -39,6 +53,7 @@ def RegistrationPage(request):
         photo = request.FILES["image"]
         type = request.POST["userType"]
         date = datetime.date.today()
+        # dob = datetime.datetime.strptime(dob_str, "%Y-%m-%d").strftime('%B %d, %Y').date()
 
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username is already taken")
@@ -56,12 +71,14 @@ def RegistrationPage(request):
         if user is not None:
             if type == "Patient":
                 auth.login(request, user)
-                return render(request, 'Patient_Dashboard.html')
+                error="patient"
             else:
-                return render(request, 'loginPage.html')
-
+                error="doctor"
     else:
-        return render(request, 'registrationPage.html')
+        error = "not"
+    d = {'error': error}
+        
+    return render(request, 'registrationPage.html', d)
 
 
 def LoginPage(request):
@@ -208,13 +225,15 @@ def delete_patient(request, pid):
 def AdminViewPredictionResultsPage(request):
     prediction_data = PredictionData.objects.all()
     prediction_data_dict = {'prediction_data': prediction_data}
-    return render(request, 'Admin_ViewPredictionResult.html',prediction_data_dict)
+    return render(request, 'Admin_ViewPredictionResult.html', prediction_data_dict)
+
 
 @login_required(login_url="login")
 def delete_prediction_admin(request, pid):
     pred = PredictionData.objects.get(id=pid)
     pred.delete()
     return redirect('admin_view_prediction')
+
 
 @login_required(login_url="login")
 def AdminViewFeedbackPage(request):
@@ -291,7 +310,14 @@ def PatientEditProfilePage(request):
         sign.user.email = email
         sign.contact = contact
         sign.address = address
-        sign.dob = datetime.datetime.strptime(dob, "%B %d, %Y").date()
+        try:
+            sign.dob = datetime.datetime.strptime(dob, "%B %d, %Y").date()
+        except ValueError:
+            # handle the error here, e.g. by setting a default date or displaying an error message to the user
+            sign.dob = datetime.date(1900, 1, 1)
+            message = "Invalid date format"
+            d = {'message': message, 'userr': sign}
+            return render(request, 'Patient_UpdateProfile.html', d)
         sign.user.save()
         sign.save()
         message = "create"

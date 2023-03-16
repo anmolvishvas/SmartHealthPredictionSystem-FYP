@@ -1,0 +1,51 @@
+<!-- Chatbot HTML -->
+<div class="chatbot">
+    <div class="chatbot-header">
+        <h3>Chatbot</h3>
+    </div>
+    <div class="chatbot-body">
+        <ul class="chat"></ul>
+    </div>
+    <div class="chatbot-footer">
+        <input type="text" id="message-box" placeholder="Type your message here...">
+        <button type="submit" id="send-btn">Send</button>
+    </div>
+</div>
+
+<!-- Chatbot JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function getResponse() {
+        var message = $("#message-box").val().trim();
+        if (message !== "") {
+            $("#message-box").val("");
+            $(".chat").append('<li class="user-message">' + message + '</li>');
+            // $(".chat").append('<li class="bot-message">' + '<span class="bot-name">Bot:</span> ' + 'Loading...' + '</li>');
+            $.ajax({
+                url: '/chatbot/',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    'message': message,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function (response) {
+                    $(".chat").append('<li class="bot-message">' + '<span class="bot-name">Bot:</span> ' + response.response + '</li>');
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            });
+        }
+    }
+    $(document).ready(function () {
+        $("#send-btn").click(function () {
+            getResponse();
+        });
+        $("#message-box").keypress(function (event) {
+            if (event.keyCode === 13) {
+                getResponse();
+            }
+        });
+    });
+</script>

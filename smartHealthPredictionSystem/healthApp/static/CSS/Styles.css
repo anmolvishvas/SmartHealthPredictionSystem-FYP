@@ -345,13 +345,13 @@ form .buttonRegister input {
 }
 
 .input-field i.showHidePw,
-.input-field i.eyes{
+.input-field i.eyes {
 	right: 0;
 	cursor: pointer;
 	padding: 10px;
 }
 
-.input-field i.showHidePw{
+.input-field i.showHidePw {
 	display: none;
 }
 
@@ -1355,4 +1355,149 @@ tr .uil {
 	.content {
 		margin-top: -40px;
 	}
+}
+
+.chatContainer {
+	overflow: auto;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 20px;
+	position: relative;
+	/* height: 700px; */
+	padding: 20px;
+	box-shadow: 1px 0 4px hsla(0, 0%, 9%, 0.3);
+	background-color: #07222d;
+}
+
+.chatContainer > h1 {
+	font-size: 40px;
+	color: #ffffff;
+	text-align: center;
+}
+.imessage_container {
+	background-color: #46597c;
+	border: 1px solid #e5e5ea;
+	border-radius: 0.25rem;
+	height: 600px;
+	font-family: "SanFrancisco";
+	font-size: 1.25rem;
+	margin: 0 auto;
+	margin-top: 20px;
+	/* margin-bottom: 85px; */
+	max-width: 600px;
+	padding: 2.5rem;
+}
+.imessage {
+	overflow-y: scroll;
+	background-color: #46597c;
+	border-radius: 0.25rem;
+	height: 480px;
+	display: flex;
+	flex-direction: column;
+	font-family: "SanFrancisco";
+	font-size: 1.25rem;
+	margin: 0 auto;
+	max-width: 600px;
+	padding: 0 20px;
+}
+
+.imessage p {
+	border-radius: 1.15rem;
+	line-height: 1.25;
+	max-width: 75%;
+	padding: 0.5rem 0.875rem;
+	position: relative;
+	word-wrap: break-word;
+}
+
+.imessage p::before,
+.imessage p::after {
+	bottom: -0.1rem;
+	content: "";
+	height: 1rem;
+	position: absolute;
+}
+
+p.from-me {
+	align-self: flex-end;
+	background-color: #334658;
+	border-bottom-right-radius: 0;
+	color: #fff;
+}
+
+p[class^="from-"] {
+	margin: 0.5rem 0;
+	width: fit-content;
+}
+
+p.from-me ~ p.from-me {
+	margin: 0.25rem 0 0;
+}
+
+p.from-me ~ p.from-me:not(:last-child) {
+	margin: 0.25rem 0 0;
+}
+
+p.from-me ~ p.from-me:last-child {
+	margin-bottom: 0.5rem;
+}
+
+p.from-them {
+	align-items: flex-start;
+	background-color: #e5e5ea;
+	color: #000;
+	border-bottom-left-radius: 0;
+}
+
+.margin-b_one {
+	margin-bottom: 1rem !important;
+}
+
+#message-box {
+	width: 99%;
+	height: 50px;
+	background-color: #fff;
+	border: 1px solid #e5e5ea;
+	border-radius: 0.75rem;
+	font-family: "SanFrancisco";
+	font-size: 1.25rem;
+	padding: 10px;
+}
+.messageicon {
+	font-size: 25px;
+}
+
+.comments {
+	max-height: calc(100% - 30px) !important;
+	border: none;
+	position: fixed;
+	z-index: 2243000;
+	bottom: 20px;
+	right: 20px;
+	height: 75px;
+	width: 75px;
+	transition: unset;
+	color-scheme: light;
+	background-color: white;
+	font-size: 60px;
+	border-radius: 50%;
+	padding-left: 9px;
+	padding-top: 2px;
+}
+
+.chatbot-footer {
+	align-items: center;
+}
+.chatbot-footer>input {
+	margin-top: 20px;
+}
+
+.submit_message{
+	margin-left: -40px;
+	background-color: transparent;
+	border: 0;
+}
+
+.submit_message i.uil{
+	font-size: 25px;
 }

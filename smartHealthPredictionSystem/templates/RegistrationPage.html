@@ -24,7 +24,11 @@
 			referrerpolicy="no-referrer"
 		/>
 		<title>Health Plus - Registration</title>
-        <link rel="shortcut icon" type="x-icon" href="{% static 'Images/Icon.png' %}">
+		<link
+			rel="shortcut icon"
+			type="x-icon"
+			href="{% static 'Images/Icon.png' %}"
+		/>
 	</head>
 
 	<body>
@@ -39,7 +43,20 @@
 				<div class="date"></div>
 			</div>
 		</header>
-
+		{% ifequal error "patient" %}
+		<script>
+			alert("Registered successfully");
+			window.location = "{% url 'patient_dashboard' %}";
+		</script>
+		{% endifequal %} 
+		{% ifequal error "doctor" %}
+		<script>
+			alert(
+				"Your information verification is pending. Please login after sometimes"
+			);
+			window.location = "{% url 'welcome' %}";
+		</script>
+		{% endifequal %}
 		<div class="registrationContainer">
 			<h1>Register</h1>
 			<form
