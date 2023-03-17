@@ -59,4 +59,5 @@ urlpatterns = [
     path('patient_health_prediction', views.PatientHealthPredictionPage,
          name='patient_health_prediction'),
     path('patient_settings', views.PatientSettingsPage, name='patient_settings'),
+     path('chatbot/', views.chat, name='chatbot'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

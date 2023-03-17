@@ -1,0 +1,148 @@
+{
+	"intents": [
+		{
+			"tag": "greetings",
+			"patterns": [
+				"hello",
+				"hey",
+				"hi",
+				"good day",
+				"greetings",
+				"How is it going?",
+				"What's up?"
+			],
+			"responses": ["Hello!", "Hey!", "Hi, how can I assist you?"]
+		},
+		{
+			"tag": "goodbye",
+			"patterns": [
+				"see you later",
+				"goodbye",
+				"I am leaving",
+				"Have a good day",
+				"bye",
+				"see ya",
+				"cya"
+			],
+			"responses": ["Talk to you later!", "Goodbye!"]
+		},
+		{
+			"tag": "name",
+			"patterns": [
+				"What is your name?",
+				"Who are you?",
+				"what should I call you?",
+				"Whats your name?"
+			],
+			"responses": ["You can call my ChatAgent", "I am ChatAgent!"]
+		},
+		{
+			"tag": "hours",
+			"patterns": [
+				"when are you guys open?",
+				"what are your hours",
+				"hours of opening"
+			],
+			"responses": ["We are available 24/7!"]
+		},
+		{
+			"tag": "profile",
+			"patterns": [
+				"how to update my profile?",
+				"i would like to update my profile details",
+				"could you help me to update my profile details",
+				"can you help me to update my profile details"
+			],
+			"responses": [
+				"To update your profile, you will need to go to 'Profile' from the navigation bar and click on 'update' button."
+			]
+		},
+		{
+			"tag": "prediction",
+			"patterns": [
+				"how to do that?",
+				"where can i check the diseases i have",
+				"how the prediction system works?",
+				"could you help me for the prediction system?",
+				"can you help me for the prediction system?",
+				"Can you help to use the prediction system?",
+				"how to use the prediction system",
+                "What are the steps to use the prediction system?",
+                "What are the steps?"
+			],
+			"responses": [
+				"To use the prediction system, select 'Health Prediction' option from the navigation bar and select all the symptoms you have. Once you will click on 'send data' you will get the prediction result.",
+				"To use the prediction system, select 'Health Prediction' option from the navigation bar"
+			]
+		},
+		{
+			"tag": "password",
+			"patterns": [
+				"How to change my password?",
+				"How can I change my password?",
+				"can you guide me to change my password",
+				"I would like to change my password"
+			],
+			"responses": [
+                "To change your password, you will need to select 'Settings' from the navigation bar. You will be asked to enter your current password, a new password and lastly you will need to confirm the new password.",
+                "To change your password, you will need to select 'Settings' from the navigation bar. Then you will be prompted to the page where you will be able to change your password. "
+            ]
+		},
+		{
+			"tag": "result",
+			"patterns": [
+                "how can I check my past prediction results?",
+                "where can I view the past prediction history?",
+                "where can I view the past prediction results?"
+            ],
+			"responses": [
+                "To view the past prediction result, you will need to select 'History' from the navigation bar."
+            ]
+		},
+		{
+			"tag": "feedback",
+			"patterns": [
+                "how can i send feedbacks?",
+                "can you help me to send feedbacks?"
+            ],
+			"responses": [
+                "To send feedback, go the 'feedback' from the navigation bar and enter your comments into the text box.",
+                "To send feedback, go the 'feedback' from the navigation bar."
+            ]
+		},
+		{
+			"tag": "past",
+			"patterns": [
+                "How can i view my past feedbacks given?",
+                "where can i see my past feedbacks given?"
+            ],
+			"responses": [
+                "Unfortunately, you cannot view or edit the past feedbacks given. "
+            ]
+		},
+		{
+			"tag": "unwell",
+			"patterns": [
+                "I am not feeling well, can you please help me.",
+                "I am feeling weak, can you please help me.",
+                "I am not well"
+            ],
+			"responses": [
+                "Since you are feeling well, why don't you try to select your symptoms in the 'Health Prediction' page and see what is the outcomes of the prediction.",
+                "You are in the right system. We are here to help you to have an idea of what you are going through. But for that you will need to go the the 'Health Prediction' page from the navigation bar, and follow the steps of the prediction system."
+            ]
+		},
+		{
+			"tag": "thanks",
+			"patterns": [
+                "Okay thanks",
+                "sure thanks",
+                "thanks for helping"
+            ],
+			"responses": [
+                "You're most welcome!",
+                "It was a pleasure helping you!"
+            ]
+		}
+	]
+}
