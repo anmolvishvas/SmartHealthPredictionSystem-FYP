@@ -35,12 +35,14 @@ def chat(request):
 
 # Create your views here.
 # main views
+
+
 def WelcomePage(request):
     return render(request, 'WelcomePage.html')
 
 
 def RegistrationPage(request):
-    error=""
+    error = ""
     if request.method == "POST":
         firstName = request.POST["firstName"]
         lastName = request.POST["lastName"]
@@ -53,6 +55,7 @@ def RegistrationPage(request):
         photo = request.FILES["image"]
         type = request.POST["userType"]
         date = datetime.date.today()
+        category = request.POST["category"]
         # dob = datetime.datetime.strptime(dob_str, "%Y-%m-%d").strftime('%B %d, %Y').date()
 
         if User.objects.filter(username=username).exists():
@@ -66,18 +69,18 @@ def RegistrationPage(request):
                 user=user, contact=contact, dob=dob, address=address, image=photo)
         else:
             Doctor.objects.create(user=user, contact=contact,
-                                  dob=dob, address=address, image=photo, status=2)
+                                  dob=dob, address=address, category=category, image=photo, status=2)
 
         if user is not None:
             if type == "Patient":
                 auth.login(request, user)
-                error="patient"
+                error = "patient"
             else:
-                error="doctor"
+                error = "doctor"
     else:
         error = "not"
     d = {'error': error}
-        
+
     return render(request, 'registrationPage.html', d)
 
 
@@ -340,17 +343,20 @@ def PatientFeedbackPage(request):
     d = {'message': error, 'userr': sign}
     return render(request, 'Patient_Feedback.html', d)
 
+
 @login_required(login_url="login")
 def PatientPredictionHistoryPage(request):
     prediction_data = PredictionData.objects.all()
     prediction_data_dict = {'prediction_data': prediction_data}
     return render(request, 'Patient_PredictionHistory.html', prediction_data_dict)
 
+
 @login_required(login_url="login")
 def delete_prediction(request, pid):
     pred = PredictionData.objects.get(id=pid)
     pred.delete()
     return redirect('patient_prediction_history')
+
 
 @login_required(login_url="login")
 def PatientHealthPredictionPage(request):
@@ -494,7 +500,14 @@ def PatientSettingsPage(request):
     return render(request, 'Patient_Settings.html', d)
 
 
+@login_required(login_url="login")
+def PatientViewDoctorPage(request): 
+    doctors = Doctor.objects.all()
+    doctor_dict = {'doctors': doctors}
+    return render(request, 'Patient_ViewDoctors.html', doctor_dict)
 # doctor views
+
+
 @login_required(login_url="login")
 def DoctorDashboardPage(request):
     user = request.user
@@ -566,17 +579,20 @@ def DoctorEditProfilePage(request):
     d = {'message': message, 'userr': sign}
     return render(request, 'Doctor_EditProfile.html', d)
 
+
 @login_required(login_url="login")
 def DoctorViewPredictionResultsPage(request):
     prediction_data = PredictionData.objects.all()
     prediction_data_dict = {'prediction_data': prediction_data}
     return render(request, 'Doctor_PredictionResult.html', prediction_data_dict)
 
+
 @login_required(login_url="login")
 def delete_prediction_doc(request, pid):
     pred = PredictionData.objects.get(id=pid)
     pred.delete()
     return redirect('doctor_view_prediction_result')
+
 
 @login_required(login_url="login")
 def DoctorSettingsPage(request):

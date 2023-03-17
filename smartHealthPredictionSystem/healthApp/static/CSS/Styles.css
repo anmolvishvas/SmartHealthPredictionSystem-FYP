@@ -193,7 +193,8 @@ form .card-details .card-box {
 	font-size: 20px;
 }
 
-.card-details .card-box input {
+.card-details .card-box input,
+.card-details .card-box select  {
 	height: 45px;
 	width: 250px;
 	padding: 12px;
@@ -206,7 +207,9 @@ form .card-details .card-box {
 }
 
 .card-details .card-box input:focus,
-.card-details .card-box input:valid {
+.card-details .card-box input:valid,
+.card-details .card-box select:focus,
+.card-details .card-box select:valid {
 	border-color: #07222d;
 }
 
@@ -1362,7 +1365,7 @@ tr .uil {
 	width: 50%;
 	margin: 0 auto;
 	margin-top: 20px;
-	position: relative;
+	/* position: relative; */
 	/* height: 700px; */
 	padding: 20px;
 	box-shadow: 1px 0 4px hsla(0, 0%, 9%, 0.3);
@@ -1514,4 +1517,54 @@ p.from-them {
 
 .submit_message i.uil{
 	font-size: 25px;
+}
+
+@media (max-width: 1214px) {
+	.chatContainer {
+		width: 80%;
+	}
+	.imessage_container {
+		height: 600px;
+		width: 800px;
+	}
+}
+
+@media (max-width: 774px) {
+	.chatContainer {
+		width: 800px;
+	}
+	/* .imessage_container {
+		height: 600px;
+		width: 800px;
+	} */
+}
+
+@media (max-width: 632px) {
+	.chatContainer {
+		width: 700px;
+	}
+	.imessage_container {
+		height: 600px;
+		width: 500px;
+	}
+}
+
+@media (max-width: 632px) {
+	.chatContainer {
+		width: 700px;
+	}
+	.imessage_container {
+		height: 600px;
+		width: 500px;
+	}
+}
+
+@media (max-width: 540px) {
+	.chatContainer {
+		width: 500px;
+	}
+	.imessage_container {
+		height: 600px;
+		width: 400px;
+	}
 }
