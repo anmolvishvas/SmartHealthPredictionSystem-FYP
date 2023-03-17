@@ -1401,6 +1401,20 @@ tr .uil {
 	padding: 0 20px;
 }
 
+::-webkit-scrollbar {
+	position: relative;
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #88888800;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 20px;
+}
+
 .imessage p {
 	border-radius: 1.15rem;
 	line-height: 1.25;
@@ -1454,7 +1468,7 @@ p.from-them {
 }
 
 #message-box {
-	width: 99%;
+	width: 98%;
 	height: 50px;
 	background-color: #fff;
 	border: 1px solid #e5e5ea;

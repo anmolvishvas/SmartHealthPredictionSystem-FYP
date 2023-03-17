@@ -332,7 +332,7 @@ def PatientFeedbackPage(request):
     user = User.objects.get(id=request.user.id)
     sign = Patient.objects.get(user=user)
     if request.method == "POST":
-        username = request.POST['username']
+        username = sign.user.username
         message = request.POST['msg']
         username = User.objects.get(username=username)
         Feedback.objects.create(user=username, messages=message)
@@ -427,7 +427,6 @@ def PatientHealthPredictionPage(request):
         sns.heatmap(cf_matrix, annot=True)
 
         def predictDisease(symptoms):
-
             # # creating input data for the models
             input_data = [0] * len(data_dict["symptom_index"])
             for symptom in symptoms:

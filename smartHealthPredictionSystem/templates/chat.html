@@ -64,10 +64,13 @@
             <!-- Chatbot JavaScript -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script>
+                let texts = document.querySelector(".imessage");
+
                 function getResponse() {
                     var message = $("#message-box").val().trim();
                     if (message !== "") {
                         $("#message-box").val("");
+                        texts.scrollTop = texts.scrollHeight;
                         $(".imessage").append('<p class="from-me">' + message + '</p>');
                         // $(".chat").append('<li class="bot-message">' + '<span class="bot-name">Bot:</span> ' + 'Loading...' + '</li>');
                         $.ajax({
@@ -80,6 +83,7 @@
                             },
                             success: function (response) {
                                 $(".imessage").append('<p class="from-them">' + response.response + '</p>');
+                                texts.scrollTop = texts.scrollHeight;
                             },
                             error: function (xhr, status, error) {
                                 console.log(xhr.responseText);
