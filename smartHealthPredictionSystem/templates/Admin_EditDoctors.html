@@ -80,8 +80,32 @@
                         </div>
                         <div class="card-box">
                             <span class="details">Specialist</span>
-                            <input type="text" value="{{doc.category}}" name= "category" required>
+                            <select id="category" name="category" >
+                                <option value="{{doc.category}}">{{doc.category}}</option>
+                                <option value="None">None</option>
+                                <option value="Dermatologists">Dermatologists</option>
+                                <option value="Allergist">Allergist</option>
+                                <option value="Gastroenterologist">Gastroenterologist</option>
+                                <option value="Internist">Internist</option>
+                                <option value="Endocrinologist">Endocrinologist</option>
+                                <option value="Pulmonologist">Pulmonologist</option>
+                                <option value="Cardiologist">Cardiologist</option>
+                                <option value="Neurologist">Neurologist</option>
+                                <option value="Orthopedic">Orthopedic</option>
+                                <option value="Generalist">Generalist</option>
+                                <option value="Infectious Diseases Specialist">
+                                    Infectious Diseases Specialist
+                                </option>
+                                <option value="Hepatologist">Hepatologist</option>
+                                <option value="Thyroidologist">Thyroidologist</option>
+                                <option value="Rheumatologist">Rheumatologist</option>
+                                <option value="Gynecologist">Gynecologist</option>
+                            </select>
                         </div>
+                        <!-- <div class="card-box">
+                            <span class="details">Specialist</span>
+                            <input type="text" value="{{doc.category}}" name= "category" required>
+                        </div> -->
                     </div>
 
                     <div class="status">

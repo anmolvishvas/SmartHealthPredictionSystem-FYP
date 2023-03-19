@@ -70,18 +70,29 @@
                         </div>
                         <div class="card-box">
                             <span class="details">Write a message</span>
-                            <textarea class="feedback" placeholder="Write your message" name="msg"></textarea>
+                            <textarea class="feedback" placeholder="Write your message" name="msg" id="myTextarea"></textarea>
                         </div>
                     </div>
 
                     <div class="buttonRegister">
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Submit" id="mySubmitButton" disabled>
                     </div>
                 </form>
             </div>
             <a href="{% url 'chatbot' %}"><i class="uil uil-comments comments"></i></a>
         </div>
-
+        <script>
+            const textarea = document.getElementById("myTextarea");
+            const submitButton = document.getElementById("mySubmitButton");
+            
+            textarea.addEventListener("input", () => {
+              if (textarea.value.length === 0) {
+                submitButton.disabled = true;
+              } else {
+                submitButton.disabled = false;
+              }
+            });
+          </script>
 
         <script src="{% static 'js/nav.js' %}"></script>
         <script src="{% static 'js/mainjs.js' %}"></script>

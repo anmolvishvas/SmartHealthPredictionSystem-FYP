@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import *
 import datetime
+from validate_email import validate_email
 
 import numpy as np
 from scipy.stats import mode
@@ -59,24 +60,25 @@ def RegistrationPage(request):
         # dob = datetime.datetime.strptime(dob_str, "%Y-%m-%d").strftime('%B %d, %Y').date()
 
         if User.objects.filter(username=username).exists():
-            messages.error(request, "Username is already taken")
-        if User.objects.filter(email=email).exists():
-            messages.error(request, "Email is already taken")
-        user = User.objects.create_user(
-            username=username, first_name=firstName, last_name=lastName, email=email, password=password)
-        if type == "Patient":
-            Patient.objects.create(
-                user=user, contact=contact, dob=dob, address=address, image=photo)
+            error = "username_error"
+        elif User.objects.filter(email=email).exists():
+            error = "email_error"
         else:
-            Doctor.objects.create(user=user, contact=contact,
-                                  dob=dob, address=address, category=category, image=photo, status=2)
-
-        if user is not None:
+            user = User.objects.create_user(
+                username=username, first_name=firstName, last_name=lastName, email=email, password=password)
             if type == "Patient":
-                auth.login(request, user)
-                error = "patient"
+                Patient.objects.create(
+                    user=user, contact=contact, dob=dob, address=address, image=photo)
             else:
-                error = "doctor"
+                Doctor.objects.create(user=user, contact=contact,
+                                      dob=dob, address=address, category=category, image=photo, status=2)
+
+            if user is not None:
+                if type == "Patient":
+                    auth.login(request, user)
+                    error = "patient"
+                else:
+                    error = "doctor"
     else:
         error = "not"
     d = {'error': error}
@@ -153,17 +155,17 @@ def AdminAddDoctorPage(request):
         category = request.POST["category"]
 
         if User.objects.filter(username=username).exists():
-            error = "Username is already taken"
-        if User.objects.filter(email=email).exists():
-            error = "Email is already taken"
-        user = User.objects.create_user(
-            username=username, first_name=firstName, last_name=lastName, email=email, password=password)
-        Doctor.objects.create(user=user, contact=contact,
-                              dob=dob, address=address, image=photo, category=category, status=1)
-        if user is not None:
-            return redirect('admin_view_doctor')
-
-        error = "error"
+            error = "username_error"
+        elif User.objects.filter(email=email).exists():
+            error = "email_error"
+        else:
+            user = User.objects.create_user(
+                username=username, first_name=firstName, last_name=lastName, email=email, password=password)
+            Doctor.objects.create(user=user, contact=contact,
+                                  dob=dob, address=address, image=photo, category=category, status=1)
+            if user is not None:
+                return redirect('admin_view_doctor')
+        # error = "error"
     d = {'error': error}
     return render(request, 'Admin_AddDoctors.html', d)
 
@@ -501,7 +503,7 @@ def PatientSettingsPage(request):
 
 
 @login_required(login_url="login")
-def PatientViewDoctorPage(request): 
+def PatientViewDoctorPage(request):
     doctors = Doctor.objects.all()
     doctor_dict = {'doctors': doctors}
     return render(request, 'Patient_ViewDoctors.html', doctor_dict)

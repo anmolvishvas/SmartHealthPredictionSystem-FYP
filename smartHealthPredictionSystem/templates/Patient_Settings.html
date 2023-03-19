@@ -55,7 +55,7 @@
             {% ifequal message "yes" %}
             <script>
                 alert('Password Changed.....');
-                window.location=('{% url "logout" %}')
+                window.location=('{% url "logout_user" %}')
             </script>
             {% endifequal %}
             {% ifequal message "not" %}
@@ -80,15 +80,15 @@
                             <div class="card-details">
                                 <div class="card-box">
                                     <span class="details">Old Password</span>
-                                    <input type="password" placeholder="Enter your Old Password" name="old_password">
+                                    <input type="password" placeholder="Enter your Old Password" name="old_password" required>
                                 </div>
                                 <div class="card-box">
                                     <span class="details">New Password</span>
-                                    <input type="password" placeholder="Enter your new password" name="new_password">
+                                    <input type="password" placeholder="Enter your new password" name="new_password" required>
                                 </div>
                                 <div class="card-box">
                                     <span class="details">Confirm Password</span>
-                                    <input type="password" placeholder="Confirm your new password" name="c_new_password">
+                                    <input type="password" placeholder="Confirm your new password" name="c_new_password" required>
                                 </div>
                             </div>
                             <div class="input-field button">

@@ -82,7 +82,7 @@
                 <h1>
                     Select Symptoms
                 </h1>
-
+                <h3 style="text-align: center; color: rgb(95, 14, 14); margin-bottom: 10px;"><b>***Note: You will need to select at least 3 symptoms to get a prediction result. You will not be able to send data if you have selected less than 3 symptoms.</b></h3>
                 <form action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="checkboxContainer">
@@ -94,13 +94,28 @@
                         {% endfor %}
                     </div>
                     <div class="buttonSubmit">
-                        <input type="submit" value="Update">
+                        <input type="submit"  id="mySubmitButton"  value="Send Data" disabled>
                     </div>
                 </form>               
             </div>
             {% endif %}
             <a href="{% url 'chatbot' %}"><i class="uil uil-comments comments"></i></a>
         </div>
+        <script>
+            const checkboxes = document.querySelectorAll('input[type=checkbox]');
+            const submitButton = document.getElementById('mySubmitButton');
+          
+            checkboxes.forEach(checkbox => {
+              checkbox.addEventListener('change', () => {
+                const numChecked = document.querySelectorAll('input[type=checkbox]:checked').length;
+                if (numChecked < 3) {
+                  submitButton.disabled = true;
+                } else {
+                  submitButton.disabled = false;
+                }
+              });
+            });
+          </script>
         <script src="{% static 'js/nav.js' %}"></script>
         <script src="{% static 'js/mainjs.js' %}"></script>
 

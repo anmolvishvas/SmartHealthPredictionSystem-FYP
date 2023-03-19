@@ -68,7 +68,7 @@
                             <h5>First Name:</h5>
                         </div>
                         <div class="col-md-9 text-secondary">
-                            <input type="text" value="{{userr.user.first_name}}" name="firstName">
+                            <input type="text" value="{{userr.user.first_name}}" name="firstName" required>
                         </div>
                     </div>
                     <div class="card-profile">
@@ -76,7 +76,7 @@
                             <h5>Last Name:</h5>
                         </div>
                         <div class="col-md-9 text-secondary">
-                            <input type="text" value="{{userr.user.last_name}}" name="lastName">
+                            <input type="text" value="{{userr.user.last_name}}" name="lastName" required>
                         </div>
                     </div>
                     <div class="card-profile">
@@ -84,7 +84,7 @@
                             <h5>Image:</h5>
                         </div>
                         <div class="col-md-9 text-secondary">
-                            <input type="file" placeholder="Upload your photo" name="image">
+                            <input type="file" placeholder="Upload your photo" name="image" >
                             <img src="{{userr.image.url}}" width="200" height="150">
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                             <h5>Email Address:</h5>
                         </div>
                         <div class="col-md-9 text-secondary">
-                            <input type="text" placeholder="MM/DD/YYYY" value="{{userr.user.email}}" name="email">
+                            <input type="text" placeholder="MM/DD/YYYY" value="{{userr.user.email}}" name="email" required>
                         </div>
                     </div>
                     <div class="card-profile">
@@ -101,7 +101,7 @@
                             <h5>Date Of Birth:</h5>
                         </div>
                         <div class="col-md-9 text-secondary">
-                            <input type="text" value="{{userr.dob}}" name="dob" readonly="readonly">
+                            <input type="text" value="{{userr.dob}}" name="dob" readonly="readonly" required>
                         </div>
                     </div>
                     <div class="card-profile">
@@ -109,7 +109,7 @@
                             <h5>Contact Number:</h5>
                         </div>
                         <div class="col-md-9 text-secondary">
-                            <input type="text" value="{{userr.contact}}" name="contact">
+                            <input type="text" value="{{userr.contact}}" name="contact" required>
                         </div>
                     </div>
                     <div class="card-profile">
@@ -117,7 +117,7 @@
                             <h5>Address:</h5>
                         </div>
                         <div class="col-md-9 text-secondary">
-                            <input type="text" value="{{userr.address}}" name="address">
+                            <input type="text" value="{{userr.address}}" name="address" required>
                         </div>
                     </div>
                     
