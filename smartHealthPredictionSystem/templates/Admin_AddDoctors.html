@@ -31,7 +31,21 @@
                 <div class="date"></div>
             </div>
         </header>
-
+        {% ifequal error "username_error" %}
+            <script>
+                alert("Username is already taken");
+            </script>
+        {% endifequal %} {% ifequal error "email_error" %}
+            <script>
+                alert("Email is already taken");
+            </script>
+        {% endifequal %} 
+        {% ifequal error "error" %}
+            <script>
+                alert('Error while adding a new doctor');
+                window.location="{% url 'admin_add_doctor' %}";
+            </script>
+        {% endifequal %}
         <div class="wrapper">
             <div class="menu-toggle">
                 <div class="hamburger">
@@ -53,12 +67,6 @@
                     <li><a href="{% url 'logout_user' %}"><i class="uil uil-signout"></i>Logout</a></li>
                 </ul>
             </div>
-            {% ifequal error "error" %}
-            <script>
-                alert('Error while adding a new doctor');
-                window.location="{% url 'admin_add_doctor' %}";
-            </script>
-            {% endifequal %}
             <div class="registrationContainer">
                 <h1>
                     Add Doctor
@@ -68,44 +76,63 @@
                     <div class="card-details">
                         <div class="card-box">
                             <span class="details">First Name</span>
-                            <input type="text" placeholder="Enter your first name" name="firstName">
+                            <input type="text" placeholder="Enter your first name" name="firstName" required>
                         </div>
                         <div class="card-box">
                             <span class="details">Last Name</span>
-                            <input type="text" placeholder="Enter your last name" name="lastName">
+                            <input type="text" placeholder="Enter your last name" name="lastName" required>
                         </div>
                         <div class="card-box">
                             <span class="details">Username</span>
-                            <input type="text" placeholder="Enter your username" name="username">
+                            <input type="text" placeholder="Enter your username" name="username" required>
                         </div>
                         <div class="card-box">
                             <span class="details">Password</span>
-                            <input type="text" placeholder="Enter your password" name="password">
+                            <input type="text" placeholder="Enter your password" name="password" required>
                         </div>
 
                         <div class="card-box">
                             <span class="details">Email</span>
-                            <input type="text" placeholder="Enter your email" name="email">
+                            <input type="text" placeholder="Enter your email" name="email" required>
                         </div>
                         <div class="card-box">
                             <span class="details">Contact</span>
-                            <input type="text" placeholder="Enter your phone number" name="contact">
+                            <input type="text" placeholder="Enter your phone number" name="contact" required>
                         </div>
                         <div class="card-box">
                             <span class="details">DOB</span>
-                            <input type="date" max="2023-04-28" name="dateOfBirth">
+                            <input type="date" max="2023-04-28" name="dateOfBirth" required>
                         </div>
                         <div class="card-box">
                             <span class="details">Address</span>
-                            <input type="text" placeholder="Enter your address" name="address">
+                            <input type="text" placeholder="Enter your address" name="address" required>
                         </div>
                         <div class="card-box">
                             <span class="details">Photo</span>
-                            <input type="file" placeholder="Upload your photo" name="image">
+                            <input type="file" placeholder="Upload your photo" name="image" required>
                         </div>
                         <div class="card-box">
                             <span class="details">Specialist</span>
-                            <input type="text" placeholder="Enter your position" name="category">
+                            <select id="category" name="category">
+                                <option value="None">None</option>
+                                <option value="Dermatologists">Dermatologists</option>
+                                <option value="Allergist">Allergist</option>
+                                <option value="Gastroenterologist">Gastroenterologist</option>
+                                <option value="Internist">Internist</option>
+                                <option value="Endocrinologist">Endocrinologist</option>
+                                <option value="Pulmonologist">Pulmonologist</option>
+                                <option value="Cardiologist">Cardiologist</option>
+                                <option value="Neurologist">Neurologist</option>
+                                <option value="Orthopedic">Orthopedic</option>
+                                <option value="Generalist">Generalist</option>
+                                <option value="Infectious Diseases Specialist">
+                                    Infectious Diseases Specialist
+                                </option>
+                                <option value="Hepatologist">Hepatologist</option>
+                                <option value="Thyroidologist">Thyroidologist</option>
+                                <option value="Rheumatologist">Rheumatologist</option>
+                                <option value="Gynecologist">Gynecologist</option>
+                            </select>
                         </div>
                     </div>
 

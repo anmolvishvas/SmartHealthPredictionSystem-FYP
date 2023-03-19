@@ -43,7 +43,15 @@
 				<div class="date"></div>
 			</div>
 		</header>
-		{% ifequal error "patient" %}
+		{% ifequal error "username_error" %}
+		<script>
+			alert("Username is already taken");
+		</script>
+		{% endifequal %} {% ifequal error "email_error" %}
+		<script>
+			alert("Email is already taken");
+		</script>
+		{% endifequal %} {% ifequal error "patient" %}
 		<script>
 			alert("Registered successfully");
 			window.location = "{% url 'patient_dashboard' %}";
@@ -76,6 +84,7 @@
 							placeholder="Enter your first name"
 							name="firstName"
 							id="firstName"
+							required
 						/>
 					</div>
 					<div class="card-box">
@@ -85,6 +94,7 @@
 							placeholder="Enter your last name"
 							name="lastName"
 							id="lastName"
+							required
 						/>
 						<br />
 					</div>
@@ -104,6 +114,7 @@
 							placeholder="Enter your password"
 							name="password"
 							id="password"
+							required
 						/>
 					</div>
 
@@ -114,6 +125,7 @@
 							placeholder="Enter your email"
 							name="email"
 							id="email"
+							required
 						/>
 					</div>
 					<div class="card-box">
@@ -123,6 +135,7 @@
 							placeholder="Enter your phone number"
 							name="contact"
 							id="contact"
+							required
 						/>
 					</div>
 					<div class="card-box">
@@ -132,6 +145,7 @@
 							max="2023-04-28"
 							name="dateOfBirth"
 							id="dateOfBirth"
+							required
 						/>
 					</div>
 					<div class="card-box">
@@ -141,6 +155,7 @@
 							placeholder="Enter your address"
 							name="address"
 							id="address"
+							required
 						/>
 					</div>
 					<div class="card-box">
@@ -150,6 +165,7 @@
 							placeholder="Upload your photo"
 							name="image"
 							id="image"
+							required
 						/>
 					</div>
 					<div class="card-box">
@@ -166,25 +182,25 @@
 							<option value="Neurologist">Neurologist</option>
 							<option value="Orthopedic">Orthopedic</option>
 							<option value="Generalist">Generalist</option>
-							<option value="Infectious Diseases Specialist">Infectious Diseases Specialist</option>
+							<option value="Infectious Diseases Specialist">
+								Infectious Diseases Specialist
+							</option>
 							<option value="Hepatologist">Hepatologist</option>
 							<option value="Thyroidologist">Thyroidologist</option>
 							<option value="Rheumatologist">Rheumatologist</option>
 							<option value="Gynecologist">Gynecologist</option>
-						  </select>
-						  <!-- <input
-							placeholder="Enter your Specialist"
-							type="text"
-							value="{{doc.category}}"
-							name="category"
-							required
-						/> -->
+						</select>
 					</div>
 				</div>
 				<div class="circal-form">
 					<span class="circal-title">User Type</span>
 					<div class="category">
-						<input type="radio" name="userType" value="Patient" />Patient
+						<input
+							type="radio"
+							name="userType"
+							value="Patient"
+							checked
+						/>Patient
 						<input type="radio" name="userType" value="Doctor" />Doctor
 					</div>
 				</div>
