@@ -51,7 +51,7 @@
                     <li><a href="{% url 'logout_user' %}"><i class="uil uil-signout"></i>Logout</a></li>
                 </ul>
             </div>
-            {% ifequal terror "create" %}
+            {% ifequal message "create" %}
             <script>
                 alert('Profile Updated Successfully');
                 window.location="{% url 'patient_profile' %}";
@@ -122,7 +122,7 @@
                     </div>
                     
                     <div class="buttonUpdate">
-                        <input type="submit" value="Update">
+                        <input type="submit" value="Confirm">
                     </div>
                 </form>
             </div>

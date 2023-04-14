@@ -23,6 +23,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 from django.http import JsonResponse
 from .chatbot import chatbot_response
 
+# Create your views here.
 # chatbot
 
 
@@ -34,7 +35,6 @@ def chat(request):
     else:
         return render(request, 'chat.html')
 
-# Create your views here.
 # main views
 
 
@@ -315,18 +315,10 @@ def PatientEditProfilePage(request):
         sign.user.email = email
         sign.contact = contact
         sign.address = address
-        try:
-            sign.dob = datetime.datetime.strptime(dob, "%B %d, %Y").date()
-        except ValueError:
-            # handle the error here, e.g. by setting a default date or displaying an error message to the user
-            sign.dob = datetime.date(1900, 1, 1)
-            message = "Invalid date format"
-            d = {'message': message, 'userr': sign}
-            return render(request, 'Patient_UpdateProfile.html', d)
+
         sign.user.save()
         sign.save()
         message = "create"
-        return redirect('patient_profile')
     d = {'message': message, 'userr': sign}
     return render(request, 'Patient_UpdateProfile.html', d)
 
@@ -573,11 +565,9 @@ def DoctorEditProfilePage(request):
         category = request.POST['type']
         sign.category = category
         sign.address = address
-        sign.dob = datetime.datetime.strptime(dob, "%b. %d, %Y").date()
         sign.user.save()
         sign.save()
         message = "create"
-        return redirect('doctor_profile')
     d = {'message': message, 'userr': sign}
     return render(request, 'Doctor_EditProfile.html', d)
 
