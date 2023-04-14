@@ -53,8 +53,8 @@
             </div>
             {% ifequal message "create" %}
             <script>
-                alert('Send Feedback Successfully');
-                window.location="{% url 'patient_feedback' %}";
+                alert('Feedback Sent Successfully');
+                window.location="{% url 'patient_dashboard' %}";
             </script>
             {% endifequal %}
             <div class="feedbackContainer">
@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="buttonRegister">
-                        <input type="submit" value="Submit" id="mySubmitButton" disabled>
+                        <input type="submit" value="Send" id="mySubmitButton" disabled>
                     </div>
                 </form>
             </div>
